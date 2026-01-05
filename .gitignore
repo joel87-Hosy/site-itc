@@ -1,0 +1,20 @@
+# Fichiers et Dossiers de Dépendances
+# Ceci empêche l'envoi de tous les packages de dépendances
+/node_modules
+/backend/node_modules
+
+# Fichiers de Construction Temporaires et GitHub Pages
+# Exclut le répertoire de sortie de la construction Jekyll/GitHub Pages
+/_site/
+
+# Fichiers macOS / OS
+.DS_Store
+
+# Fichiers de Configuration Locaux (si utilisés)
+.env
+.idea/
+.vscode/
+
+# Logs et Fichiers Temporaires
+*.log
+*.tmp

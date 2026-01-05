@@ -1,0 +1,76 @@
+/* Logos Scrolling Section Styles */
+.references-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.logos-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.logos-scroll {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logos-wrapper {
+  display: flex;
+  align-items: center;
+  animation: scroll-logos 20s linear infinite;
+  width: fit-content;
+}
+
+.logo-item {
+  height: 80px;
+  width: auto;
+  margin: 0 40px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.logo-item:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Animation for continuous scrolling */
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.logos-wrapper:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logo-item {
+    height: 60px;
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-item {
+    height: 50px;
+    margin: 0 15px;
+  }
+
+  .logos-wrapper {
+    animation-duration: 15s;
+  }
+}

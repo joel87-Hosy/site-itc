@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Test Backend ITC</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 50px auto;
+      }
+      .test-section {
+        margin: 20px 0;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+      }
+      .result {
+        margin-top: 10px;
+        padding: 10px;
+        background: #f0f0f0;
+        border-radius: 3px;
+      }
+      .success {
+        color: green;
+      }
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Test Backend ITC</h1>
+
+    <div class="test-section">
+      <h2>1. Test GET /</h2>
+      <button onclick="testGet()">Test GET</button>
+      <div id="result-get" class="result"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>2. Test POST /api/contact</h2>
+      <button onclick="testContact()">Test Contact</button>
+      <div id="result-contact" class="result"></div>
+    </div>
+
+    <div class="test-section">
+      <h2>3. Test POST /api/newsletter</h2>
+      <button onclick="testNewsletter()">Test Newsletter</button>
+      <div id="result-newsletter" class="result"></div>
+    </div>
+
+    <script>
+      const backendUrl = "http://localhost:3000";
+
+      async function testGet() {
+        try {
+          const res = await fetch(backendUrl + "/");
+          const data = await res.json();
+          document.getElementById(
+            "result-get"
+          ).innerHTML = `<div class="success">✓ ${JSON.stringify(data)}</div>`;
+        } catch (err) {
+          document.getElementById(
+            "result-get"
+          ).innerHTML = `<div class="error">✗ ${err.message}</div>`;
+        }
+      }
+
+      async function testContact() {
+        try {
+          const formData = new FormData();
+          formData.append("nom_complet", "Test User");
+          formData.append("email", "test@example.com");
+          formData.append("telephone", "0123456789");
+          formData.append("sujet", "Test Subject");
+          formData.append("message", "This is a test message");
+
+          const res = await fetch(backendUrl + "/api/contact", {
+            method: "POST",
+            body: formData,
+          });
+          const data = await res.json();
+          document.getElementById("result-contact").innerHTML = `<div class="${
+            data.ok ? "success" : "error"
+          }">
+                    ${data.ok ? "✓" : "✗"} ${JSON.stringify(data)}
+                    </div>`;
+        } catch (err) {
+          document.getElementById(
+            "result-contact"
+          ).innerHTML = `<div class="error">✗ ${err.message}</div>`;
+        }
+      }
+
+      async function testNewsletter() {
+        try {
+          const res = await fetch(backendUrl + "/api/newsletter", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: "newsletter@example.com" }),
+          });
+          const data = await res.json();
+          document.getElementById(
+            "result-newsletter"
+          ).innerHTML = `<div class="${data.ok ? "success" : "error"}">
+                    ${data.ok ? "✓" : "✗"} ${JSON.stringify(data)}
+                    </div>`;
+        } catch (err) {
+          document.getElementById(
+            "result-newsletter"
+          ).innerHTML = `<div class="error">✗ ${err.message}</div>`;
+        }
+      }
+    </script>
+  </body>
+</html>
