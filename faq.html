@@ -93,35 +93,62 @@
         background: #fdfdfd;
       }
 
-      /* Style Cookie Banner (Si pas déjà dans le CSS) */
+      /* Cookie banner - centered card above footer */
       .cookie-banner-section {
         position: fixed;
-        bottom: -100%;
-        left: 0;
-        width: 100%;
-        background-color: #1a1a1a;
-        color: #fff;
+        left: 50%;
+        transform: translateX(-50%) translateY(120%);
+        bottom: 24px;
         z-index: 99999;
-        padding: 20px 0;
-        border-top: 3px solid #ff6600;
-        transition: all 0.5s ease;
+        width: calc(100% - 40px);
+        max-width: 980px;
+        background: #111;
+        color: #fff;
+        border-radius: 10px;
+        padding: 12px 18px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.2, 1),
+          opacity 0.35s;
+        opacity: 0;
       }
-      .cookie-banner-section.show {
-        bottom: 0;
-      }
-      .cookie-banner-section .inner-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .cookie-banner-section .content-box {
-        display: flex;
-        align-items: center;
-      }
-      .cookie-banner-section .icon-box {
-        font-size: 24px;
-        margin-right: 15px;
+      .cookie-banner-section .text { font-size:14px; line-height:1.3 }
+      .cookie-banner-section .btn-box { flex-shrink:0 }
+      @media (max-width:600px){.cookie-banner-section{width:calc(100% - 24px);padding:10px}.cookie-banner-section .text{font-size:13px}}
+    </style>
+    <style>
+      :root { --itc-orange: #ff6600; --itc-glass: rgba(15,15,15,0.75); --itc-border: rgba(255,255,255,0.15); }
+      .cookie-glass { position: fixed; bottom:20px; left:50%; transform:translateX(-50%) translateY(150%); width:calc(100% - 40px); max-width:1100px; background:var(--itc-glass); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1px solid var(--itc-border); border-radius:22px; box-shadow:0 25px 50px rgba(0,0,0,0.45); z-index:999999; transition:0.5s ease; color:#fff; display:none }
+      .cookie-glass.show { transform:translateX(-50%) translateY(0); display:block }
+      .cookie-container{display:flex;justify-content:space-between;align-items:center;padding:22px 25px;gap:20px}
+      .cookie-left{display:flex;gap:15px;align-items:center}
+      .cookie-icon{font-size:34px;color:var(--itc-orange)}
+      .cookie-text p{margin:5px 0 0;font-size:14px;color:#e0e0e0}
+      .cookie-text a{color:var(--itc-orange);font-weight:600}
+      .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+      .btn-cookie{padding:10px 18px;border-radius:30px;font-size:14px;border:none;cursor:pointer;transition:0.3s}
+      .btn-accept{background:linear-gradient(135deg,#ff6600,#ff8c42);color:#fff}
+      .btn-refuse{background:transparent;border:1px solid #aaa;color:#fff}
+      .btn-settings{background:rgba(255,255,255,0.12);color:#fff}
+      @media(max-width:768px){.cookie-container{flex-direction:column;align-items:stretch}.cookie-actions{flex-direction:column}.btn-cookie{width:100%}}
+    </style>
+        font-size: 20px;
         color: #ff6600;
+      }
+      .cookie-banner-section .text {
+        font-size: 14px;
+        line-height: 1.3;
+      }
+      .cookie-banner-section .btn-box {
+        flex-shrink: 0;
+      }
+      @media (max-width: 600px) {
+        .cookie-banner-section {
+          width: calc(100% - 24px);
+          padding: 10px;
+        }
+        .cookie-banner-section .text {
+          font-size: 13px;
+        }
       }
     </style>
   </head>
@@ -129,6 +156,22 @@
   <body>
     <div class="page-wrapper">
       <div class="preloader"></div>
+      <!-- Cookie banner (glass style) -->
+      <div id="itc-cookie-banner" class="cookie-glass" aria-live="polite">
+        <div class="cookie-container">
+          <div class="cookie-left">
+            <div class="cookie-icon"><i class="fas fa-cookie-bite"></i></div>
+            <div class="cookie-text" id="cookie-text">
+              <p><strong>Votre vie privée est importante</strong><br>ITC utilise des cookies pour améliorer votre expérience. <a href="politique-confidentialite.html">En savoir plus</a></p>
+            </div>
+          </div>
+          <div class="cookie-actions">
+            <button id="btn-refuse" class="btn-cookie btn-refuse">Refuser</button>
+            <button id="btn-settings" class="btn-cookie btn-settings">Paramétrer</button>
+            <button id="btn-accept" class="btn-cookie btn-accept">Accepter</button>
+          </div>
+        </div>
+      </div>
 
       <header class="main-header header-style-one">
         <div class="header-top">
@@ -599,25 +642,6 @@
       <span class="fa fa-angle-up"></span>
     </div>
 
-    <div id="itc-cookie-banner" class="cookie-banner-section">
-      <div class="auto-container">
-        <div class="inner-container">
-          <div class="content-box">
-            <div class="icon-box"><span class="fas fa-cookie-bite"></span></div>
-            <div class="text">
-              Nous utilisons des cookies pour optimiser votre expérience. En
-              continuant, vous acceptez notre politique.
-            </div>
-          </div>
-          <div class="btn-box">
-            <button id="accept-cookies-btn" class="theme-btn btn-style-one">
-              <span class="txt">J'accepte</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <script src="js/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -631,44 +655,24 @@
 
     <script>
       (function () {
-        // --- LIGNE A SUPPRIMER UNE FOIS LE TEST FINI ---
-        // localStorage.removeItem('itc_cookies_accepted');
-        // -----------------------------------------------
+        const banner = document.getElementById('itc-cookie-banner');
+        const btnAccept = document.getElementById('btn-accept');
+        const btnRefuse = document.getElementById('btn-refuse');
+        const btnSettings = document.getElementById('btn-settings');
 
-        var cookieBanner = document.getElementById("itc-cookie-banner");
-        var acceptBtn = document.getElementById("accept-cookies-btn");
+        function initTexts(){
+          document.getElementById('cookie-text').innerHTML = '<p><strong>Votre vie privée est importante</strong><br>ITC utilise des cookies pour améliorer votre expérience. <a href="politique-confidentialite.html">En savoir plus</a></p>';
+          btnAccept.textContent = 'Accepter'; btnRefuse.textContent='Refuser'; btnSettings.textContent='Paramétrer';
+        }
+        initTexts();
 
-        if (!cookieBanner || !acceptBtn) return;
-
-        // Vérification
-        if (localStorage.getItem("itc_cookies_accepted") === "true") {
-          cookieBanner.style.display = "none";
-          cookieBanner.classList.remove("show");
-        } else {
-          // Affiche le bandeau après 1 seconde
-          setTimeout(function () {
-            cookieBanner.classList.add("show");
-            cookieBanner.style.display = "block";
-            cookieBanner.style.bottom = "0";
-          }, 1000);
+        if (!localStorage.getItem('itc_cookie_consent')) {
+          setTimeout(()=> banner.classList.add('show'), 800);
         }
 
-        acceptBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          // Enregistrer le consentement
-          localStorage.setItem("itc_cookies_accepted", "true");
-
-          // Animation de disparition
-          cookieBanner.style.transition = "all 0.5s ease";
-          cookieBanner.style.bottom = "-100%";
-          cookieBanner.classList.remove("show");
-
-          // Suppression définitive après l'animation
-          setTimeout(function () {
-            cookieBanner.style.display = "none";
-          }, 500);
-        });
+        btnAccept.onclick = ()=>{ localStorage.setItem('itc_cookie_consent','all'); banner.classList.remove('show'); setTimeout(()=> banner.style.display='none',500); };
+        btnRefuse.onclick = ()=>{ localStorage.setItem('itc_cookie_consent','necessary'); banner.classList.remove('show'); setTimeout(()=> banner.style.display='none',500); };
+        btnSettings.onclick = ()=>{ window.location.href='cookies.html'; };
       })();
     </script>
   </body>

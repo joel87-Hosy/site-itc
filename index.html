@@ -61,12 +61,72 @@
       ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
     ><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <style>
+      :root {
+        --itc-orange: #ff6600;
+        --itc-black: #0f0f0f;
+        --itc-glass: rgba(15, 15, 15, 0.75);
+        --itc-border: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Cookie glass banner */
+      .cookie-glass {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(150%);
+        width: calc(100% - 40px);
+        max-width: 1100px;
+        background: var(--itc-glass);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid var(--itc-border);
+        border-radius: 22px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+        z-index: 999999;
+        transition: 0.5s ease;
+        color: #fff;
+        display: none;
+      }
+      .cookie-glass.show {
+        transform: translateX(-50%) translateY(0);
+        display: block;
+      }
+
+      .cookie-container {display:flex;justify-content:space-between;align-items:center;padding:22px 25px;gap:20px}
+      .cookie-left {display:flex;gap:15px;align-items:center}
+      .cookie-icon {font-size:34px;color:var(--itc-orange)}
+      .cookie-text p{margin:5px 0 0;font-size:14px;color:#e0e0e0}
+      .cookie-text a{color:var(--itc-orange);font-weight:600}
+      .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+      .btn-cookie{padding:10px 18px;border-radius:30px;font-size:14px;border:none;cursor:pointer;transition:0.3s}
+      .btn-accept{background:linear-gradient(135deg,#ff6600,#ff8c42);color:#fff}
+      .btn-refuse{background:transparent;border:1px solid #aaa;color:#fff}
+      .btn-settings{background:rgba(255,255,255,0.12);color:#fff}
+      @media (max-width: 768px){.cookie-container{flex-direction:column;align-items:stretch}.cookie-actions{flex-direction:column}.btn-cookie{width:100%}}
+    </style>
   </head>
 
   <body>
     <div class="page-wrapper">
       <!-- Preloader -->
       <div class="preloader"></div>
+      <!-- Cookie banner (glass style) -->
+      <div id="itc-cookie-banner" class="cookie-glass" aria-live="polite">
+        <div class="cookie-container">
+          <div class="cookie-left">
+            <div class="cookie-icon"><i class="fas fa-cookie-bite"></i></div>
+            <div class="cookie-text" id="cookie-text">
+              <p><strong>Votre vie privée est importante</strong><br>ITC utilise des cookies pour améliorer votre expérience. <a href="politique-confidentialite.html">En savoir plus</a></p>
+            </div>
+          </div>
+          <div class="cookie-actions">
+            <button id="btn-refuse" class="btn-cookie btn-refuse">Refuser</button>
+            <button id="btn-settings" class="btn-cookie btn-settings">Paramétrer</button>
+            <button id="btn-accept" class="btn-cookie btn-accept">Accepter</button>
+          </div>
+        </div>
+      </div>
 
       <header class="main-header header-style-one">
         <!--Header Top-->
@@ -1263,62 +1323,54 @@
                 </div>
               </div>
             </div>
+            </div>
           </div>
-        </div>
-        <div id="itc-cookie-banner" class="cookie-banner-section">
-          <div class="auto-container">
-              <div class="inner-container">
-                  <div class="content-box">
-                      <div class="icon-box"><span class="fas fa-cookie-bite"></span></div>
-                      <div class="text">
-                          Nous utilisons des cookies pour optimiser votre expérience. En continuant, vous acceptez notre politique.
-                      </div>
-                  </div>
-                  <div class="btn-box">
-                      <button id="accept-cookies-btn" class="theme-btn btn-style-one"><span class="txt">J'accepte</span></button>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <script>
-       (function() {
-            
-            var cookieBanner = document.getElementById('itc-cookie-banner');
-            var acceptBtn = document.getElementById('accept-cookies-btn');
+          <script>
+            (function () {
+              const texts = {
+                fr: {
+                  banner: `<strong>Votre vie privée est importante</strong> <p>ITC utilise des cookies pour améliorer votre expérience. <a href="politique-confidentialite.html">En savoir plus</a></p>`,
+                  accept: "Accepter",
+                  refuse: "Refuser",
+                  settings: "Paramétrer",
+                  modal: "Paramètres des cookies",
+                },
+              };
 
-            if (!cookieBanner || !acceptBtn) return;
+              const banner = document.getElementById("itc-cookie-banner");
+              const btnAccept = document.getElementById("btn-accept");
+              const btnRefuse = document.getElementById("btn-refuse");
+              const btnSettings = document.getElementById("btn-settings");
 
-            // Vérification normale (mais annulée par la ligne de test ci-dessus)
-            if (localStorage.getItem('itc_cookies_accepted') === 'true') {
-                cookieBanner.style.display = 'none';
-                cookieBanner.classList.remove('show');
-            } else {
-                // Affiche le bandeau après 1 seconde
-                setTimeout(function() {
-                    cookieBanner.classList.add('show');
-                    cookieBanner.style.display = 'block'; // Sécurité
-                    cookieBanner.style.bottom = '0'; // Sécurité CSS
-                }, 1000);
-            }
+              function setTexts() {
+                document.getElementById("cookie-text").innerHTML = texts.fr.banner;
+                btnAccept.textContent = texts.fr.accept;
+                btnRefuse.textContent = texts.fr.refuse;
+                btnSettings.textContent = texts.fr.settings;
+              }
 
-            acceptBtn.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                
-                // Enregistrer le consentement
-                localStorage.setItem('itc_cookies_accepted', 'true');
+              setTexts();
 
-                // Animation de disparition
-                cookieBanner.style.transition = "all 0.5s ease";
-                cookieBanner.style.bottom = '-100%';
-                cookieBanner.classList.remove('show');
+              if (!localStorage.getItem("itc_cookie_consent")) {
+                setTimeout(() => banner.classList.add("show"), 800);
+              }
 
-                // Suppression définitive après l'animation
-                setTimeout(function() {
-                    cookieBanner.style.display = 'none';
-                }, 500);
-            });
-        })();
-    </script>
+              btnAccept.onclick = () => {
+                localStorage.setItem("itc_cookie_consent", "all");
+                banner.classList.remove("show");
+                setTimeout(() => (banner.style.display = "none"), 500);
+              };
+              btnRefuse.onclick = () => {
+                localStorage.setItem("itc_cookie_consent", "necessary");
+                banner.classList.remove("show");
+                setTimeout(() => (banner.style.display = "none"), 500);
+              };
+              btnSettings.onclick = () => {
+                // Optional: open settings modal. For now just open policy
+                window.location.href = 'cookies.html';
+              };
+            })();
+          </script>
         <div
         class="text-center p-3"
         style="background-color: rgba(255, 129, 198, 0.2)"
