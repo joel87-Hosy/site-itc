@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
@@ -37,28 +37,37 @@
         font-family: "Montserrat", sans-serif;
       }
 
-      /* ================= COOKIE BANNER ================= */
+      /* ================= COOKIE BANNER (AU-DESSUS DES ANNONCES) ================= */
       .cookie-glass {
         position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%) translateY(150%);
-        width: calc(100% - 40px);
+        /* On la remonte significativement pour passer au-dessus de la bande d'annonce */
+        bottom: 85px;
+        left: 5%;
+        right: 5%;
+        width: 90%;
         max-width: 1100px;
+        margin: 0 auto;
+
+        /* Animation fluide depuis le bas */
+        transform: translateY(200%);
+
         background: var(--itc-glass);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border: 1px solid var(--itc-border);
         border-radius: 22px;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
-        z-index: 999999;
-        transition: 0.5s ease;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+        /* Priorité maximale pour passer devant le footer et les annonces */
+        z-index: 9999999;
+
+        transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         color: #fff;
       }
-      .cookie-glass.show {
-        transform: translateX(-50%) translateY(0);
-      }
 
+      .cookie-glass.show {
+        transform: translateY(0);
+      }
       .cookie-container {
         display: flex;
         justify-content: space-between;
@@ -167,6 +176,7 @@
       @media (max-width: 768px) {
         .cookie-container {
           flex-direction: column;
+          gap: 8px;
           align-items: stretch;
         }
         .cookie-actions {
@@ -314,7 +324,7 @@
               necessary: true,
               analytics: document.getElementById("analytics").checked,
               marketing: document.getElementById("marketing").checked,
-            })
+            }),
           );
           modal.classList.remove("show");
           close();

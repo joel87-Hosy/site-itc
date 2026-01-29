@@ -30,7 +30,7 @@
   //Submenu Dropdown Toggle
   if ($(".main-header li.dropdown ul").length) {
     $(".main-header .navigation li.dropdown").append(
-      '<div class="dropdown-btn"><span class="fa fa-angle-right"></span></div>'
+      '<div class="dropdown-btn"><span class="fa fa-angle-right"></span></div>',
     );
 
     //Dropdown Button
@@ -38,7 +38,7 @@
       "click",
       function () {
         $(this).prev("ul").slideToggle(500);
-      }
+      },
     );
 
     //Disable dropdown parent link
@@ -69,7 +69,7 @@
     $(".mobile-menu .menu-box").mCustomScrollbar();
 
     var mobileMenuContent = $(
-      ".main-header .nav-outer .main-menu .navigation"
+      ".main-header .nav-outer .main-menu .navigation",
     ).html();
     $(".mobile-menu .navigation").append(mobileMenuContent);
     $(".sticky-header .navigation").append(mobileMenuContent);
@@ -95,7 +95,7 @@
       "click",
       function () {
         $("body").removeClass("mobile-menu-visible");
-      }
+      },
     );
   }
 
@@ -128,6 +128,50 @@
       },
     });
   }
+
+  const servicesITC = [
+    { name: "Fibre Optique", url: "residental-interior.html" },
+    { name: "Déploiement Réseau", url: "deplacement-reseau.html" },
+    { name: "Maintenance Informatique", url: "office-interior.html" },
+    { name: "Étude et Audit", url: "etude.html" },
+    { name: "Installation Télécom", url: "service-installation.html" },
+    { name: "Contact & Devis", url: "contact.html" },
+  ];
+
+  const searchInput = document.getElementById("search-input");
+  const suggestionsList = document.getElementById("search-suggestions");
+
+  searchInput.addEventListener("input", function () {
+    const val = this.value.toLowerCase().trim();
+    suggestionsList.innerHTML = "";
+
+    if (val.length < 2) {
+      suggestionsList.style.display = "none";
+      return;
+    }
+
+    const matches = servicesITC.filter((s) =>
+      s.name.toLowerCase().includes(val),
+    );
+
+    if (matches.length > 0) {
+      matches.forEach((match) => {
+        const div = document.createElement("div");
+        div.classList.add("suggestion-item");
+        div.textContent = match.name;
+        div.onclick = () => (window.location.href = match.url);
+        suggestionsList.appendChild(div);
+      });
+      suggestionsList.style.display = "block";
+    } else {
+      suggestionsList.style.display = "none";
+    }
+  });
+
+  // Fermer les suggestions si on clique ailleurs
+  document.addEventListener("click", (e) => {
+    if (e.target !== searchInput) suggestionsList.style.display = "none";
+  });
 
   // Testimonial Carousel
   if ($(".testimonial-carousel").length) {
@@ -182,7 +226,7 @@
         return false;
       } else {
         $(".project-tab .project-tab-btns .p-tab-btn").removeClass(
-          "active-btn"
+          "active-btn",
         );
         $(this).addClass("active-btn");
         $(".project-tab .p-tabs-content .p-tab").removeClass("active-tab");
@@ -232,7 +276,7 @@
     var searchButton = document.querySelector(".search-box-btn");
     var searchPopup = document.getElementById("search-popup-itc");
     var closeButton = document.querySelector(
-      "#search-popup-itc .close-search-btn"
+      "#search-popup-itc .close-search-btn",
     );
 
     if (searchButton && searchPopup && closeButton) {
@@ -441,7 +485,8 @@
                   form.reset();
                 } else {
                   alert(
-                    (json && json.error) || "Erreur lors de l'envoi du message."
+                    (json && json.error) ||
+                      "Erreur lors de l'envoi du message.",
                   );
                 }
               })
@@ -454,7 +499,7 @@
           // ignore invalid URLs
         }
       },
-      false
+      false,
     );
     $(".count-box").appear(
       function () {
@@ -479,11 +524,11 @@
               complete: function () {
                 $t.find(".count-text").text(this.countNum);
               },
-            }
+            },
           );
         }
       },
-      { accY: 0 }
+      { accY: 0 },
     );
   }
 
@@ -579,7 +624,7 @@
         {
           scrollTop: $(target).offset().top,
         },
-        1500
+        1500,
       );
     });
   }

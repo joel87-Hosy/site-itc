@@ -278,13 +278,11 @@
                         /> -->
                       </div>
                       <div class="col-lg-12 col-md-12 col-sm-12 form-group">
-                        <button
-                          class="theme-btn btn-style-one"
-                          type="submit"
-                          name="submit-form"
-                        >
-                          <span class="txt" style="color: #ff6600;">Envoyer le Mes stysage</span>
-                        </button>
+                        <div id="contact-response-msg" style="display:none; padding:15px; margin-bottom:20px; border-radius:5px; font-weight:bold; text-align:center;"></div>
+
+<button class="theme-btn btn-style-one" type="submit" name="submit-form">
+    <span class="txt" style="color: #ff6600;">Envoyer le Message</span>
+</button>
                       </div>
                     </div>
                   </form>
@@ -316,7 +314,7 @@
                         <a href="#"><span class="fab fa-linkedin-in"></span></a>
                       </li>
                       <li>
-                        <a href="mailto:info@ivoiretechnocom.ci"
+                        <a href="mailto:siteweb@ivoiretechnocom.ci"
                           ><span class="fas fa-envelope"></span
                         ></a>
                       </li>
@@ -345,8 +343,8 @@
                       <li style="color: azure;">
                         <span class="icon flaticon-envelope"></span>
                         <strong>E-mail :</strong><br /><a
-                          href="mailto:info@ivoiretechnocom.ci"
-                          >info@ivoiretechnocom.ci</a
+                          href="mailto:siteweb@ivoiretechnocom.ci"
+                          >siteweb@ivoiretechnocom.ci</a
                         >
                       </li>
                       <li style="color: azure;">
@@ -767,7 +765,7 @@
                           ></a>
                         </li>
                         <li>
-                          <a href="mailto:info@ivoiretechnocom.ci"
+                          <a href="mailto:siteweb@ivoiretechnocom.ci"
                             ><span class="fab fa-google-plus-g"></span
                           ></a>
                         </li>
@@ -814,8 +812,8 @@
                         <ul>
                           <li>Quartier Angré 22ème, Abidjan, Côte d'Ivoire</li>
                           <li>
-                            Email :<a href="mailto:info@ivoiretechnocom.ci"
-                              >info@ivoiretechnocom.ci</a
+                            Email :<a href="mailto:siteweb@ivoiretechnocom.ci"
+                              >siteweb@ivoiretechnocom.ci</a
                             >
                           </li>
                         </ul>
@@ -883,5 +881,56 @@
     <script src="js/appear.js"></script>
     <script src="js/scrollbar.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const responseDiv = document.getElementById('contact-response-msg');
+    const submitBtn = this.querySelector('button[type="submit"]');
+    
+    // Reset et affichage du chargement
+    responseDiv.style.display = "none";
+    submitBtn.disabled = true;
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = "Envoi en cours...";
+
+    const formData = new URLSearchParams(new FormData(this));
+
+    try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            body: formData
+        });
+
+        responseDiv.style.display = "block";
+        
+        if (response.ok) {
+            // Style de succès
+            responseDiv.style.backgroundColor = "#d4edda";
+            responseDiv.style.color = "#155724";
+            responseDiv.style.border = "1px solid #c3e6cb";
+            responseDiv.innerHTML = "✅ Merci ! Votre message a été envoyé avec succès à l'équipe ITC.";
+            this.reset(); // On vide le formulaire
+        } else {
+            // Style d'erreur
+            responseDiv.style.backgroundColor = "#f8d7da";
+            responseDiv.style.color = "#721c24";
+            responseDiv.style.border = "1px solid #f5c6cb";
+            responseDiv.innerHTML = "❌ Une erreur est survenue. Veuillez réessayer ou nous appeler directement.";
+        }
+    } catch (error) {
+        responseDiv.style.display = "block";
+        responseDiv.style.backgroundColor = "#f8d7da";
+        responseDiv.innerHTML = "❌ Connexion impossible. Vérifiez que le serveur est allumé.";
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+        
+        // Optionnel : masquer le message après 8 secondes
+        setTimeout(() => { responseDiv.style.display = "none"; }, 8000);
+    }
+});
+</script>
   </body>
 </html>

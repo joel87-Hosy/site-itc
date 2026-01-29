@@ -300,12 +300,13 @@
     <div class="close-search-btn"><span class="icon flaticon-cancel"></span></div> 
     
     <div class="search-form-itc">
-        <form action="projects-classic.html" method="get">
-            <div class="form-group d-flex">
-                <input type="text" name="q" placeholder="Rechercher sur le site..." required>
-                <button type="submit"><span class="icon flaticon-magnifying-glass-1"></span></button>
-            </div>
-        </form>
+        <form id="global-search-form" action="projects-classic.html" method="get" style="position: relative;">
+    <div class="form-group d-flex">
+        <input type="text" id="search-input" name="q" placeholder="Rechercher un service ITC..." autocomplete="off" required>
+        <button type="submit"><span class="icon flaticon-magnifying-glass-1"></span></button>
+    </div>
+    <div id="search-suggestions" class="search-suggestions-list"></div>
+</form>
     </div>
 </div>
 
@@ -1241,7 +1242,7 @@
                           <a href="https://www.instagram.com/ivoiretechnocom?igsh=bnVpZzEzNTZ1Nmxv&utm_source=ig_contact_invite"><span class="fab fa-instagram"></span></a>
                         </li>
                        <li>
-                          <a href="mailto:info@ivoiretechnocom.ci"
+                          <a href="mailto:siteweb@ivoiretechnocom.ci"
                             ><span class="fab fa-google-plus-g"></span
                           ></a>
                         </li>
@@ -1280,8 +1281,8 @@
                         <ul>
                           <li>Quartier Angré 22ème, Abidjan, Côte d'Ivoire</li>
                           <li>
-                            Email :<a href="mailto:info@ivoiretechnocom.ci"
-                              >info@ivoiretechnocom.ci</a
+                            Email :<a href="mailto:siteweb@ivoiretechnocom.ci"
+                              >siteweb@ivoiretechnocom.ci</a
                             >
                           </li>
                         </ul>
@@ -1298,25 +1299,15 @@
                       </div>
                       <!-- Newsletter Form -->
                       <div class="newsletter-form">
-                        <form method="post" action="/api/newsletter">
-                          <input type="hidden" name="_captcha" value="false">
-
-                          <div class="form-group">
-                            <input
-                              type="email"
-                              name="email"
-                              value=""
-                              placeholder="Entrez votre adresse e-mail"
-                              required
-                            />
-                            <button
-                              type="submit"
-                              class="theme-btn btn-style-one"
-                            >
-                              <span class="txt">S'abonner</span>
-                            </button>
-                          </div>
-                        </form>
+                        <form id="newsletter-form" method="post" action="/api/newsletter">
+    <div class="form-group">
+        <input type="email" id="subscriber-email" name="email" placeholder="Entrez votre adresse e-mail" required />
+        <button type="submit" class="theme-btn btn-style-one">
+            <span class="txt">S'abonner</span>
+        </button>
+    </div>
+</form>
+<div id="newsletter-message" style="margin-top: 10px; display: none;"></div>
                       </div>
                     </div>
                   </div>
@@ -1370,6 +1361,37 @@
                 window.location.href = 'cookies.html';
               };
             })();
+
+            document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Empêche le rechargement de la page
+
+    const emailInput = document.getElementById('subscriber-email');
+    const messageDiv = document.getElementById('newsletter-message');
+    const formData = new URLSearchParams(new FormData(this));
+
+    try {
+        const response = await fetch('/api/newsletter', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        });
+
+        if (response.ok) {
+            messageDiv.style.display = 'block';
+            messageDiv.style.color = 'green';
+            messageDiv.innerHTML = "✅ Merci ! Votre abonnement est pris en compte.";
+            this.reset(); // Vide le champ email
+        } else {
+            throw new Error('Erreur serveur');
+        }
+    } catch (error) {
+        messageDiv.style.display = 'block';
+        messageDiv.style.color = 'red';
+        messageDiv.innerHTML = "❌ Une erreur est survenue. Réessayez plus tard.";
+    }
+});
           </script>
         <div
         class="text-center p-3"
@@ -1397,5 +1419,35 @@
     <script src="js/appear.js"></script>
     <script src="js/scrollbar.js"></script>
     <script src="js/script.js"></script>
+
+     <script>
+document.getElementById('global-search-form').addEventListener('submit', function(e) {
+    const input = document.getElementById('search-input');
+    const query = input.value.toLowerCase().trim();
+    
+    // On définit les mots-clés pour les services ITC
+    const routes = {
+        'fibre': 'residental-interior.html',
+        'internet': 'residental-interior.html',
+        'maintenance': 'office-interior.html',
+        'réparation': 'office-interior.html',
+        'étude': 'etude.html',
+        'audit': 'etude.html',
+        'contact': 'contact.html',
+        'devis': 'contact.html'
+    };
+
+    // On vérifie si un mot-clé correspond
+    for (let key in routes) {
+        if (query.includes(key)) {
+            e.preventDefault(); // On empêche l'envoi classique
+            window.location.href = routes[key]; // On redirige vers la bonne page
+            return;
+        }
+    }
+    
+    // Si aucun mot-clé n'est trouvé, on laisse Git/Express gérer la recherche par défaut
+});
+</script>
   </body>
 </html>
