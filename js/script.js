@@ -58,7 +58,7 @@
     });
   }
 
-  // 4. LOGIQUE DE RECHERCHE INTELLIGENTE (CORRIGÉE)
+  // 4. LOGIQUE DE RECHERCHE INTELLIGENTE
   const servicesITC = [
     { name: "Fibre Optique", url: "residental-interior.html" },
     { name: "Déploiement Réseau", url: "deplacement-reseau.html" },
@@ -71,21 +71,17 @@
   const searchInput = document.getElementById("search-input");
   const suggestionsList = document.getElementById("search-suggestions");
 
-  // SÉCURITÉ : On ne lance l'écouteur que si les éléments existent sur la page
   if (searchInput && suggestionsList) {
     searchInput.addEventListener("input", function () {
       const val = this.value.toLowerCase().trim();
       suggestionsList.innerHTML = "";
-
       if (val.length < 2) {
         suggestionsList.style.display = "none";
         return;
       }
-
       const matches = servicesITC.filter((s) =>
         s.name.toLowerCase().includes(val),
       );
-
       if (matches.length > 0) {
         matches.forEach((match) => {
           const div = document.createElement("div");
@@ -99,21 +95,18 @@
         suggestionsList.style.display = "none";
       }
     });
-
-    // Fermer les suggestions si on clique ailleurs
     document.addEventListener("click", (e) => {
       if (e.target !== searchInput) suggestionsList.style.display = "none";
     });
   }
 
-  // 5. Gestion du Popup de Recherche (Toggle)
+  // 5. Gestion du Popup de Recherche
   (function () {
     var searchButton = document.querySelector(".search-box-btn");
     var searchPopup = document.getElementById("search-popup-itc");
     var closeButton = document.querySelector(
       "#search-popup-itc .close-search-btn",
     );
-
     if (searchButton && searchPopup && closeButton) {
       searchButton.addEventListener("click", function () {
         searchPopup.classList.add("visible");
@@ -123,20 +116,70 @@
         searchPopup.classList.remove("visible");
         document.body.classList.remove("search-active");
       });
-      searchPopup.addEventListener("click", function (e) {
-        if (e.target === searchPopup) {
-          searchPopup.classList.remove("visible");
-          document.body.classList.remove("search-active");
-        }
-      });
     }
   })();
 
-  // 6. Carrousels (Sliders)
+  // 6. --- GESTION UNIFIÉE DES FORMULAIRES (NEWSLETTER & CONTACT) ---
+
+  // Formulaire Newsletter
+  $(document).on("submit", "#itc-newsletter-form", async function (e) {
+    e.preventDefault();
+    const $form = $(this);
+    const $submitBtn = $form.find('button[type="submit"]');
+    const email = $form.find('input[name="email"]').val();
+    const originalText = $submitBtn.html();
+    $submitBtn.html("<span>...</span>").prop("disabled", true);
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email }),
+      });
+      const result = await response.json();
+      if (response.ok) {
+        alert("✅ Succès : " + (result.message || "Vous êtes abonné !"));
+        $form[0].reset();
+      } else {
+        alert("❌ Erreur : " + (result.error || "Échec de l'abonnement."));
+      }
+    } catch (error) {
+      alert("❌ Le serveur ne répond pas.");
+    } finally {
+      $submitBtn.html(originalText).prop("disabled", false);
+    }
+  });
+
+  // Formulaire de Contact
+  $(document).on("submit", "#contact-form", async function (e) {
+    e.preventDefault();
+    const $form = $(this);
+    const $submitBtn = $form.find('button[type="submit"]');
+    const formData = new FormData($form[0]);
+    const originalText = $submitBtn.html();
+    $submitBtn.html("<span>Envoi en cours...</span>").prop("disabled", true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
+      if (response.ok) {
+        alert("✅ Message envoyé avec succès à l'équipe ITC !");
+        $form[0].reset();
+      } else {
+        alert("❌ Erreur : " + (result.error || "Échec de l'envoi."));
+      }
+    } catch (error) {
+      alert("❌ Impossible de contacter le serveur.");
+    } finally {
+      $submitBtn.html(originalText).prop("disabled", false);
+    }
+  });
+
+  // 7. Carrousels & Sliders
   if ($(".banner-carousel").length) {
     $(".banner-carousel").owlCarousel({
       loop: true,
-      margin: 0,
       nav: true,
       smartSpeed: 500,
       autoplay: true,
@@ -148,21 +191,7 @@
     });
   }
 
-  if ($(".testimonial-carousel").length) {
-    $(".testimonial-carousel").owlCarousel({
-      loop: true,
-      margin: 30,
-      nav: true,
-      autoplay: true,
-      navText: [
-        '<span class="fa fa-angle-left"></span>',
-        '<span class="fa fa-angle-right"></span>',
-      ],
-      responsive: { 0: { items: 1 }, 800: { items: 2 } },
-    });
-  }
-
-  // 7. Masonry (Filtres Réalisations)
+  // 8. Masonry & WOW
   function sortableMasonry() {
     if ($(".sortable-masonry").length) {
       var $container = $(".sortable-masonry .items-container");
@@ -176,17 +205,11 @@
     }
   }
 
-  // 8. Animations WOW
   if ($(".wow").length) {
-    var wow = new WOW({ mobile: false });
-    wow.init();
+    new WOW({ mobile: false }).init();
   }
 
-  // --- Événements Window ---
-  $(window).on("scroll", function () {
-    headerStyle();
-  });
-
+  $(window).on("scroll", headerStyle);
   $(window).on("load", function () {
     handlePreloader();
     sortableMasonry();
