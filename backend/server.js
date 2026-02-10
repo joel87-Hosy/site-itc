@@ -46,12 +46,16 @@ app.post("/api/newsletter", async (req, res) => {
 
   let transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: process.env.SMTP_SECURE === "true",
+    port: parseInt(process.env.SMTP_PORT || "465", 10),
+    secure:
+      process.env.SMTP_SECURE === "true" ||
+      process.env.SMTP_SECURE === "ssl" ||
+      process.env.SMTP_PORT === "465",
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
+    tls: { rejectUnauthorized: false },
   });
 
   try {
@@ -81,12 +85,16 @@ app.post("/api/contact", async (req, res) => {
 
   let transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: process.env.SMTP_SECURE === "true",
+    port: parseInt(process.env.SMTP_PORT || "465", 10),
+    secure:
+      process.env.SMTP_SECURE === "true" ||
+      process.env.SMTP_SECURE === "ssl" ||
+      process.env.SMTP_PORT === "465",
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
+    tls: { rejectUnauthorized: false },
   });
 
   try {
