@@ -191,7 +191,59 @@
     });
   }
 
-  // 8. Masonry & WOW
+  if ($(".testimonial-carousel").length) {
+    $(".testimonial-carousel").owlCarousel({
+      loop: true,
+      nav: false,
+      dots: true,
+      margin: 24,
+      smartSpeed: 700,
+      autoplay: true,
+      autoplayTimeout: 3500,
+      autoplayHoverPause: true,
+      responsive: { 0: { items: 1 }, 1024: { items: 1 } },
+    });
+  }
+
+  // 8. Fact Counter
+  function factCounter() {
+    if ($(".count-box").length) {
+      $(".count-box").appear(
+        function () {
+          var $this = $(this);
+
+          if (!$this.hasClass("counted")) {
+            $this.addClass("counted");
+
+            $this.find(".count-text").each(function () {
+              var $counter = $(this);
+              var stop = Number($counter.attr("data-stop")) || 0;
+              var speed = Number($counter.attr("data-speed")) || 2000;
+
+              $({
+                countNum: Number($counter.text().replace(/[^0-9.-]/g, "")) || 0,
+              }).animate(
+                { countNum: stop },
+                {
+                  duration: speed,
+                  easing: "linear",
+                  step: function () {
+                    $counter.text(Math.floor(this.countNum));
+                  },
+                  complete: function () {
+                    $counter.text(stop);
+                  },
+                },
+              );
+            });
+          }
+        },
+        { accY: 0 },
+      );
+    }
+  }
+
+  // 9. Masonry & WOW
   function sortableMasonry() {
     if ($(".sortable-masonry").length) {
       var $container = $(".sortable-masonry .items-container");
@@ -205,13 +257,14 @@
     }
   }
 
-  if ($(".wow").length) {
+  if ($(".wow").length && typeof WOW !== "undefined") {
     new WOW({ mobile: false }).init();
   }
 
   $(window).on("scroll", headerStyle);
   $(window).on("load", function () {
     handlePreloader();
+    factCounter();
     sortableMasonry();
   });
 })(window.jQuery);

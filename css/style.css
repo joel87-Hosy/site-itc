@@ -1,4 +1,4 @@
-/* Stella Orr'e - Interior and Home Renovation HTML Template  */
+﻿/* Stella Orr'e - Interior and Home Renovation HTML Template  */
 
 /************ TABLE OF CONTENTS ***************
 1. Fonts
@@ -88,7 +88,7 @@ font-family: 'Rufina', serif;
   font-size: 100%;
 }
 
-/* Sidebar social icons (Suivez-nous) — larger icons displayed horizontally (top-level) */
+/* Sidebar social icons (Suivez-nous) â€” larger icons displayed horizontally (top-level) */
 .sidebar-widget.social-media-widget .widget-content .social-icons {
   display: flex;
   justify-content: center; /* center horizontally */
@@ -338,11 +338,11 @@ li {
   letter-spacing: 2px;
   background-color: #ffffff;
   text-transform: uppercase;
-  transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -webkit-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
   -o-transition: all 600ms ease;
+  transition: all 600ms ease;
   font-family: "Poppins", sans-serif;
 }
 
@@ -358,11 +358,11 @@ li {
   bottom: 0;
   left: 0;
   right: -50px;
-  transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -webkit-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
   -o-transition: all 600ms ease;
+  transition: all 600ms ease;
   border-right: 50px solid transparent;
   border-bottom: 80px solid #dfb162;
   -webkit-transform: translateX(-100%);
@@ -381,11 +381,11 @@ li {
   right: 0;
   bottom: 0;
   left: -50px;
-  transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -webkit-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
   -o-transition: all 600ms ease;
+  transition: all 600ms ease;
   border-left: 50px solid transparent;
   border-top: 80px solid #dfb162;
   -webkit-transform: translateX(100%);
@@ -433,11 +433,11 @@ li {
   bottom: 0;
   left: 0;
   right: -50px;
-  transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -webkit-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
   -o-transition: all 600ms ease;
+  transition: all 600ms ease;
   border-right: 50px solid transparent;
   border-bottom: 80px solid #dfb162;
   -webkit-transform: translateX(-100%);
@@ -456,11 +456,11 @@ li {
   right: 0;
   bottom: 0;
   left: -50px;
-  transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -webkit-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
   -o-transition: all 600ms ease;
+  transition: all 600ms ease;
   border-left: 50px solid transparent;
   border-top: 80px solid #dfb162;
   -webkit-transform: translateX(100%);
@@ -509,11 +509,11 @@ li {
   bottom: 0;
   left: 0;
   right: -50px;
-  transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -webkit-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
   -o-transition: all 600ms ease;
+  transition: all 600ms ease;
   border-right: 50px solid transparent;
   border-bottom: 80px solid #222222;
   -webkit-transform: translateX(-100%);
@@ -532,11 +532,11 @@ li {
   right: 0;
   bottom: 0;
   left: -50px;
-  transition: all 600ms ease;
   -moz-transition: all 600ms ease;
   -webkit-transition: all 600ms ease;
   -ms-transition: all 600ms ease;
   -o-transition: all 600ms ease;
+  transition: all 600ms ease;
   border-left: 50px solid transparent;
   border-top: 80px solid #222222;
   -webkit-transform: translateX(100%);
@@ -1594,11 +1594,11 @@ img {
   -webkit-transform: translateX(101%);
   -ms-transform: translateX(101%);
   transform: translateX(101%);
-  transition: all 900ms ease;
   -moz-transition: all 900ms ease;
   -webkit-transition: all 900ms ease;
   -ms-transition: all 900ms ease;
   -o-transition: all 900ms ease;
+  transition: all 900ms ease;
 }
 
 .mobile-menu-visible .mobile-menu .menu-backdrop {
@@ -1945,11 +1945,11 @@ img {
   -ms-transform-origin: bottom;
   transform-origin: bottom;
   background: rgba(0, 0, 0, 0.8);
-  transition: all 700ms ease;
   -moz-transition: all 700ms ease;
   -webkit-transition: all 700ms ease;
   -ms-transition: all 700ms ease;
   -o-transition: all 700ms ease;
+  transition: all 700ms ease;
 }
 
 .search-popup .overlay-layer {
@@ -1989,11 +1989,11 @@ img {
   max-width: 1024px;
   margin: 0 auto;
   margin-top: 200px;
-  transition: all 900ms ease;
   -moz-transition: all 900ms ease;
   -webkit-transition: all 900ms ease;
   -ms-transition: all 900ms ease;
   -o-transition: all 900ms ease;
+  transition: all 900ms ease;
 }
 
 .search-popup .search-form fieldset {
@@ -2151,11 +2151,11 @@ img {
   position: relative;
   font-size: 14px;
   color: #6f6f70;
-  transition: all 300ms ease;
   -moz-transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .main-slider .social-icons li a:hover {
@@ -2769,11 +2769,11 @@ img {
   -ms-transform: scale(0.5) rotateX(180deg);
   -o-transform: scale(0.5) rotateX(180deg);
   transform: scale(0.5) rotateX(180deg);
-  transition: all 900ms ease;
   -moz-transition: all 900ms ease;
   -webkit-transition: all 900ms ease;
   -ms-transition: all 900ms ease;
   -o-transition: all 900ms ease;
+  transition: all 900ms ease;
 }
 
 .service-block .inner-box:hover .image a:before {
@@ -3023,10 +3023,10 @@ img {
   margin: 0px 30px 6px;
   padding: 0px 0px 6px;
   text-transform: capitalize;
-  transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
+  transition: all 300ms ease;
   font-family: "Rufina", serif;
 }
 
@@ -3038,10 +3038,10 @@ img {
   height: 1px;
   width: 0px;
   background-color: #e9c37a;
-  transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .project-section .filters li.active,
@@ -3306,10 +3306,10 @@ html {
   -ms-transform: translateY(0);
   transform: translateY(0);
   opacity: 1;
-  transition: all 500ms ease 500ms;
   -webkit-transition: all 500ms ease 500ms;
   -ms-transition: all 500ms ease 500ms;
   -o-transition: all 500ms ease 500ms;
+  transition: all 500ms ease 500ms;
 }
 
 .gallery-item .overlay-inner .link {
@@ -3324,10 +3324,10 @@ html {
   font-weight: 600;
   display: inline-block;
   border: 1px solid #ffffff;
-  transition: all 500ms ease;
   -webkit-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .gallery-item .overlay-inner .link .icon {
@@ -3399,11 +3399,11 @@ html {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.03);
-  transition: all 0.6s ease;
   -moz-transition: all 0.6s ease;
   -webkit-transition: all 0.6s ease;
   -ms-transition: all 0.6s ease;
   -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
 }
 
 .fluid-section-one .image-column .overlay-link .icon-box {
@@ -3433,8 +3433,8 @@ html {
   left: 50%;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
   -ms-border-radius: 50%;
+  border-radius: 50%;
   -webkit-transform: translate(-50%, -50%);
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -3743,11 +3743,11 @@ html {
   line-height: 136px;
   border-radius: 50%;
   background-color: #f0f0f0;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .feature-block .inner-box:hover .icon-outer .icon-box {
@@ -3768,11 +3768,11 @@ html {
   border-radius: 50px;
   font-weight: 600;
   background-color: #e0b262;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .feature-block .inner-box:hover .icon-outer .feature-number {
@@ -3795,11 +3795,11 @@ html {
 .feature-block .inner-box .lower-content h3 a {
   position: relative;
   color: #e4b563;
-  transition: all 0.6s ease;
   -moz-transition: all 0.6s ease;
   -webkit-transition: all 0.6s ease;
   -ms-transition: all 0.6s ease;
   -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
 }
 
 .feature-block .inner-box .lower-content .text {
@@ -3808,11 +3808,11 @@ html {
   font-size: 16px;
   line-height: 1.8em;
   margin-top: 14px;
-  transition: all 0.6s ease;
   -moz-transition: all 0.6s ease;
   -webkit-transition: all 0.6s ease;
   -ms-transition: all 0.6s ease;
   -o-transition: all 0.6s ease;
+  transition: all 0.6s ease;
 }
 
 .feature-block .inner-box:hover .lower-content h3 a {
@@ -3858,11 +3858,11 @@ html {
   position: relative;
   width: 100%;
   display: block;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .news-block .inner-box:hover .image img {
@@ -3919,11 +3919,11 @@ html {
 .news-block .inner-box .lower-content h3 a {
   position: relative;
   color: #242424;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .news-block .inner-box .lower-content h3 a:hover {
@@ -3937,11 +3937,11 @@ html {
   margin-top: 14px;
   display: inline-block;
   font-family: "Rufina", serif;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .news-block .inner-box .lower-content .read-more:hover {
@@ -4311,11 +4311,11 @@ html {
   line-height: 1em;
   font-weight: 400;
   margin-bottom: 28px;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .fact-counter .count-outer .percentage {
@@ -4544,10 +4544,10 @@ html {
   color: #797979;
   border-radius: 0px;
   border: 1px solid #dddede;
-  transition: all 500ms ease;
   -webkit-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .default-form textarea {
@@ -4712,10 +4712,10 @@ html {
   color: #dfb162;
   font-size: 22px;
   font-family: "Rufina", serif;
-  transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .services-section-four .more-services .services:hover {
@@ -4935,11 +4935,11 @@ html {
   margin-bottom: 7px;
   padding: 0px 0px 6px;
   text-transform: capitalize;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   font-family: "Rufina", serif;
 }
 
@@ -4952,11 +4952,11 @@ html {
   height: 1px;
   opacity: 0;
   background-color: #dfb162;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .project-section-three .project-tab .project-tab-btns .p-tab-btn:hover::after,
@@ -5001,11 +5001,11 @@ html {
 }
 
 .p-tab .gallery-item {
-  transition: all 0.7s ease;
   -moz-transition: all 0.7s ease;
   -webkit-transition: all 0.7s ease;
   -ms-transition: all 0.7s ease;
   -o-transition: all 0.7s ease;
+  transition: all 0.7s ease;
   -webkit-transform: scaleX(0);
   -ms-transform: scaleX(0);
   -o-transform: scaleX(0);
@@ -5177,7 +5177,7 @@ html {
   border-radius: 0 0 10px 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  display: none; /* Caché par défaut */
+  display: none; /* CachÃ© par dÃ©faut */
 }
 
 .suggestion-item {
@@ -5290,11 +5290,11 @@ html {
   z-index: 20;
   line-height: 80px;
   display: inline-block;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .welcome-section .video-column .video-box .overlay-box span {
@@ -5309,11 +5309,11 @@ html {
   border-radius: 50%;
   padding-left: 4px;
   display: inline-block;
-  transition: all 900ms ease;
   -moz-transition: all 900ms ease;
   -webkit-transition: all 900ms ease;
   -ms-transition: all 900ms ease;
   -o-transition: all 900ms ease;
+  transition: all 900ms ease;
   background-color: #dfb162;
 }
 
@@ -5340,11 +5340,11 @@ html {
   top: 0px;
   right: 0px;
   bottom: 0px;
-  transition: all 900ms ease;
   -moz-transition: all 900ms ease;
   -webkit-transition: all 900ms ease;
   -ms-transition: all 900ms ease;
   -o-transition: all 900ms ease;
+  transition: all 900ms ease;
   background-image: -ms-linear-gradient(
     left,
     rgba(0, 0, 0, 0) 0%,
@@ -5424,11 +5424,11 @@ html {
   color: #dfb162;
   font-weight: 400;
   text-transform: capitalize;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .page-breadcrumb li a:hover {
@@ -5765,11 +5765,11 @@ html {
   display: block;
   background-color: #272a2c;
   font-family: "Rufina", serif;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -5869,10 +5869,10 @@ html {
   margin: 0px 14px 5px;
   /* display was ignored because element is floated - float already makes it block-level */
   text-transform: capitalize;
-  transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .portfolio-page-section .filters .filter.active,
@@ -5927,11 +5927,11 @@ html {
   height: 52px;
   color: #797979;
   font-weight: 400;
-  transition: all 500ms ease;
   -moz-transition: all 500ms ease;
   -webkit-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
+  transition: all 500ms ease;
   border: 1px solid #d3d3d3;
 }
 
@@ -6000,11 +6000,11 @@ html {
   margin-bottom: 12px;
   display: block;
   border-bottom: 1px solid #e6e6e6;
-  transition: all 500ms ease;
   -moz-transition: all 500ms ease;
   -webkit-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .cat-list li:last-child a {
@@ -6055,11 +6055,11 @@ html {
 .sidebar .popular-posts .post .post-thumb img {
   display: block;
   width: 100%;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .sidebar .popular-posts .post .text {
@@ -6076,11 +6076,11 @@ html {
 
 .sidebar .popular-posts .post .text a {
   color: #242424;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .sidebar .popular-posts .post a:hover {
@@ -6109,11 +6109,11 @@ html {
   font-weight: 600;
   border: 1px solid #e4e4e4;
   text-transform: capitalize;
-  transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .sidebar .popular-tags a:hover {
@@ -6149,11 +6149,11 @@ html {
   position: relative;
   width: 100%;
   display: block;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .news-block-two .inner-box:hover .image img {
@@ -6240,11 +6240,11 @@ html {
 .news-block-two .inner-box .lower-content .lower-box h3 a {
   position: relative;
   color: #242424;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .news-block-two .inner-box .lower-content .lower-box h3 a:hover {
@@ -6495,11 +6495,11 @@ html {
   background: #ffffff;
   border: 2px solid #d4d4d4;
   text-transform: capitalize;
-  transition: all 500ms ease;
   -webkit-transition: all 500ms ease;
   -ms-transition: all 500ms ease;
   -o-transition: all 500ms ease;
   -moz-transition: all 500ms ease;
+  transition: all 500ms ease;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -6609,7 +6609,7 @@ html {
   }
 }
 
-/* Reusable thumbnail helper — apply .thumb-fixed on any image container to make thumbnails uniform */
+/* Reusable thumbnail helper â€” apply .thumb-fixed on any image container to make thumbnails uniform */
 .thumb-fixed {
   height: 260px;
   overflow: hidden;
@@ -6940,7 +6940,7 @@ html {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.9); /* Fond sombre/transparent */
-  z-index: 99999; /* Assure qu'il est au-dessus des autres éléments */
+  z-index: 99999; /* Assure qu'il est au-dessus des autres Ã©lÃ©ments */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6955,7 +6955,7 @@ html {
   visibility: visible;
 }
 
-/* Style du formulaire à l'intérieur du pop-up */
+/* Style du formulaire Ã  l'intÃ©rieur du pop-up */
 .search-form-itc {
   max-width: 600px;
   width: 90%;
@@ -6998,10 +6998,10 @@ html {
   z-index: 100000;
 }
 
-/* SOLUTION RADICALE (À utiliser si la première solution échoue) */
+/* SOLUTION RADICALE (Ã€ utiliser si la premiÃ¨re solution Ã©choue) */
 
 .image.ratio {
-  /* Assure que l'élément parent est la référence pour l'élément positionné absolument (l'image) */
+  /* Assure que l'Ã©lÃ©ment parent est la rÃ©fÃ©rence pour l'Ã©lÃ©ment positionnÃ© absolument (l'image) */
   position: relative;
 }
 
@@ -7011,7 +7011,7 @@ html {
   object-fit: cover;
   object-position: center;
 
-  /* Force l'image à se positionner en haut à gauche de son parent .ratio */
+  /* Force l'image Ã  se positionner en haut Ã  gauche de son parent .ratio */
   position: absolute;
   top: 0;
   left: 0;
@@ -7301,11 +7301,11 @@ html {
   position: relative;
   width: 100%;
   display: block;
-  transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .shop-item .inner-box:hover .image img {
@@ -7453,11 +7453,11 @@ html {
 
 .shop-item .inner-box .lower-content h3 a {
   color: #242424;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .shop-item .inner-box .lower-content h3 a:hover {
@@ -7548,11 +7548,11 @@ html {
 
 .shop-item-two .inner-box .lower-content h3 a {
   color: #242424;
-  transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .shop-item-two .inner-box .lower-content h3 a:hover {
@@ -8194,14 +8194,14 @@ html {
    VIDEO & IMAGE RESPONSIVE
    ========================= */
 
-/* Desktop (par défaut) */
+/* Desktop (par dÃ©faut) */
 .image-column .image img {
   width: 100%;
   height: auto;
   border-radius: 16px;
 }
 
-/* Bouton play centré */
+/* Bouton play centrÃ© */
 .image-column .icon-box {
   width: 80px;
   height: 80px;
@@ -8209,10 +8209,10 @@ html {
 }
 
 /* =========================
-   MOBILE & PETITS ÉCRANS
+   MOBILE & PETITS Ã‰CRANS
    ========================= */
 @media (max-width: 768px) {
-  /* Réduction du bloc image */
+  /* RÃ©duction du bloc image */
   .image-column {
     max-width: 90%;
     margin: 0 auto;
@@ -8230,7 +8230,7 @@ html {
     font-size: 18px;
   }
 
-  /* Fancybox : taille vidéo réduite */
+  /* Fancybox : taille vidÃ©o rÃ©duite */
   .fancybox__content video,
   .fancybox__content iframe {
     max-width: 95vw;
@@ -8239,7 +8239,7 @@ html {
 }
 
 /* =========================
-   TRÈS PETITS TÉLÉPHONES
+   TRÃˆS PETITS TÃ‰LÃ‰PHONES
    ========================= */
 @media (max-width: 480px) {
   .image-column .image img {
@@ -8684,11 +8684,11 @@ html {
   padding: 10px 15px;
   height: 38px;
   border: 1px solid #e2e2e2;
-  transition: all 300ms ease;
   -webkit-transition: all 300ms ease;
   -ms-transition: all 300ms ease;
   -o-transition: all 300ms ease;
   -moz-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 .shop-form input.address-two {
@@ -8881,12 +8881,12 @@ html {
   font-family: "Open Sans", sans-serif;
 }
 /* ====================================================================
-   CORRECTION ITC : VISIBILITÉ DU TEXTE DU DIRECTEUR SUR PETITS ÉCRANS
+   CORRECTION ITC : VISIBILITÃ‰ DU TEXTE DU DIRECTEUR SUR PETITS Ã‰CRANS
    ==================================================================== */
 
-/* Cible les téléphones et les petites tablettes */
+/* Cible les tÃ©lÃ©phones et les petites tablettes */
 @media only screen and (max-width: 767px) {
-  /* 1. Force la colonne à s'afficher (neutralise un potentiel display: none/visibility: hidden) */
+  /* 1. Force la colonne Ã  s'afficher (neutralise un potentiel display: none/visibility: hidden) */
   .director-word-section .content-column {
     display: block !important;
     opacity: 1 !important;
@@ -8896,19 +8896,19 @@ html {
   /* 2. Force le texte des paragraphes en noir pur pour un contraste maximal */
   .director-word-section .content-column p {
     color: #000000 !important; /* Texte noir pur */
-    /* Assure que la hauteur et l'opacité ne sont pas forcées à zéro */
+    /* Assure que la hauteur et l'opacitÃ© ne sont pas forcÃ©es Ã  zÃ©ro */
     opacity: 1 !important;
     max-height: none !important;
     visibility: visible !important;
   }
 
-  /* 3. Ajuste l'alignement du titre sur les petits écrans pour qu'il ne soit pas coupé */
+  /* 3. Ajuste l'alignement du titre sur les petits Ã©crans pour qu'il ne soit pas coupÃ© */
   .director-word-section .content-column h2 {
     text-align: center !important;
-    padding-right: 0 !important; /* Annule tout padding-right forcé */
+    padding-right: 0 !important; /* Annule tout padding-right forcÃ© */
   }
 
-  /* 4. Corrige la couleur de la signature si elle était affectée */
+  /* 4. Corrige la couleur de la signature si elle Ã©tait affectÃ©e */
   .director-word-section .content-column p strong {
     color: #000000 !important;
   }

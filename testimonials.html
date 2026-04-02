@@ -11,6 +11,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
+    <link href="css/itc-modern.css" rel="stylesheet" />
 
     <link
       rel="shortcut icon"
@@ -25,17 +26,225 @@
 
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--[if lt IE 9
       ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
     ><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <style>
+      :root {
+        --itc-violet: #6f187f;
+        --itc-violet-deep: #531062;
+        --itc-magenta: #ec0a92;
+        --itc-ink: #120c1c;
+        --itc-surface: #fff7fd;
+        --itc-gradient: linear-gradient(
+          135deg,
+          var(--itc-magenta),
+          var(--itc-violet)
+        );
+      }
+
+      .testimonials-modern {
+        background:
+          radial-gradient(
+            circle at 8% -10%,
+            rgba(236, 10, 146, 0.15),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at 92% 12%,
+            rgba(111, 24, 127, 0.16),
+            transparent 33%
+          ),
+          var(--itc-surface);
+      }
+
+      .testimonials-modern .header-top {
+        background: linear-gradient(
+          100deg,
+          var(--itc-violet-deep),
+          var(--itc-violet)
+        );
+      }
+
+      .testimonials-modern .header-style-one .header-upper {
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(111, 24, 127, 0.13);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+      }
+
+      .testimonials-logo-main {
+        width: 100px;
+      }
+
+      .testimonials-modern .main-menu .navigation > li > a {
+        position: relative;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .testimonials-modern .main-menu .navigation > li > a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 3px;
+        border-radius: 99px;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.25s ease;
+        background: var(--itc-gradient);
+      }
+
+      .testimonials-modern .main-menu .navigation > li:hover > a::after,
+      .testimonials-modern .main-menu .navigation > li.current > a::after {
+        transform: scaleX(1);
+      }
+
+      .testimonials-page-title-bg {
+        background-image: url(images/image-banière-itc3.png);
+      }
+
+      .testimonials-modern .page-title {
+        position: relative;
+      }
+
+      .testimonials-modern .page-title::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          110deg,
+          rgba(18, 12, 28, 0.78),
+          rgba(111, 24, 127, 0.5)
+        );
+      }
+
+      .testimonials-modern .page-title .auto-container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .testimonials-modern .testimonials-page-section {
+        position: relative;
+        padding: 90px 0 70px;
+        overflow: hidden;
+      }
+
+      .testimonials-modern .testimonials-page-section .title-box h2 {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(30px, 3.8vw, 50px);
+        font-weight: 800;
+        color: var(--itc-ink);
+      }
+
+      .testimonials-modern .testimonials-page-section .title-box .text {
+        max-width: 920px;
+      }
+
+      .testimonials-modern .testimonial-block {
+        display: flex;
+      }
+
+      .testimonials-modern .testimonial-block .inner-box {
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        border: 1px solid rgba(111, 24, 127, 0.12);
+        box-shadow: 0 14px 32px rgba(44, 21, 66, 0.14);
+        transition:
+          transform 0.28s ease,
+          box-shadow 0.28s ease;
+        background: #fff;
+      }
+
+      .testimonials-modern .testimonial-block .inner-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 42px rgba(44, 21, 66, 0.2);
+      }
+
+      .testimonials-modern .testimonial-block .inner-box .content {
+        padding: 30px 24px 28px 98px;
+      }
+
+      .testimonials-modern .testimonial-block .inner-box .content h3 {
+        color: var(--itc-violet);
+        font-size: 21px;
+      }
+
+      .testimonials-modern .testimonial-block .inner-box .content .title {
+        color: #7b3e84;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+      }
+
+      .testimonials-modern .testimonial-block .inner-box .content .text {
+        color: #4a3654;
+      }
+
+      .testimonials-modern
+        .testimonial-block
+        .inner-box
+        .content
+        .image-outer
+        .image {
+        width: 72px;
+        height: 72px;
+        border: 2px solid rgba(111, 24, 127, 0.16);
+      }
+
+      .testimonials-modern
+        .testimonial-block
+        .inner-box
+        .content
+        .image-outer
+        .image
+        img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .testimonials-modern .testimonials-page-section .testimonial-block,
+      .testimonials-modern
+        .testimonials-page-section
+        .testimonial-block
+        .inner-box,
+      .testimonials-modern
+        .testimonials-page-section
+        .testimonial-block
+        .content {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .testimonials-footer-strip {
+        background-color: rgba(255, 129, 198, 0.2);
+      }
+
+      @media (max-width: 767px) {
+        .testimonials-modern .testimonial-block {
+          display: block;
+        }
+
+        .testimonials-modern .testimonial-block .inner-box .content {
+          padding: 24px 18px 22px 84px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .testimonials-modern .testimonial-block .inner-box {
+          transition: none !important;
+        }
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="testimonials-modern">
     <div class="page-wrapper">
       <!-- Preloader -->
       <div class="preloader"></div>
@@ -73,7 +282,7 @@
             <div class="auto-container clearfix">
               <!--Info-->
               <div class="logo-outer">
-                <div class="logo mh-100" style="width: 100px">
+                <div class="logo mh-100 testimonials-logo-main">
                   <a href="index.html">
                     <img
                       src="images/nouveau-logo-itc.png"
@@ -213,7 +422,11 @@
                 placeholder="Rechercher sur le site..."
                 required
               />
-              <button type="submit">
+              <button
+                type="submit"
+                aria-label="Lancer la recherche"
+                title="Lancer la recherche"
+              >
                 <span class="icon flaticon-magnifying-glass-1"></span>
               </button>
             </div>
@@ -222,10 +435,7 @@
       </div>
 
       <!--Page Title-->
-      <section
-        class="page-title"
-        style="background-image: url(images/image-banière-itc3.png)"
-      >
+      <section class="page-title testimonials-page-title-bg">
         <div class="auto-container">
           <h2>Témoignages</h2>
           <ul class="page-breadcrumb">
@@ -518,24 +728,58 @@
                         <li>
                           <a
                             href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"
-                            ><span class="fab fa-facebook-f"></span
-                          ></a>
+                            aria-label="Facebook Ivoire Techno Com"
+                            title="Facebook Ivoire Techno Com"
+                            ><span
+                              class="fab fa-facebook-f"
+                              aria-hidden="true"
+                            ></span
+                            ><span class="visually-hidden"
+                              >Facebook Ivoire Techno Com</span
+                            ></a
+                          >
                         </li>
                         <li>
-                          <a href="#"
-                            ><span class="fab fa-linkedin-in"></span
-                          ></a>
+                          <a
+                            href="#"
+                            aria-label="LinkedIn Ivoire Techno Com"
+                            title="LinkedIn Ivoire Techno Com"
+                            ><span
+                              class="fab fa-linkedin-in"
+                              aria-hidden="true"
+                            ></span
+                            ><span class="visually-hidden"
+                              >LinkedIn Ivoire Techno Com</span
+                            ></a
+                          >
                         </li>
                         <li>
                           <a
                             href="https://www.instagram.com/ivoiretechnocom?igsh=bnVpZzEzNTZ1Nmxv&utm_source=ig_contact_invite"
-                            ><span class="fab fa-instagram"></span
-                          ></a>
+                            aria-label="Instagram Ivoire Techno Com"
+                            title="Instagram Ivoire Techno Com"
+                            ><span
+                              class="fab fa-instagram"
+                              aria-hidden="true"
+                            ></span
+                            ><span class="visually-hidden"
+                              >Instagram Ivoire Techno Com</span
+                            ></a
+                          >
                         </li>
                         <li>
-                          <a href="mailto:siteweb@ivoiretechnocom.ci"
-                            ><span class="fab fa-google-plus-g"></span
-                          ></a>
+                          <a
+                            href="mailto:siteweb@ivoiretechnocom.ci"
+                            aria-label="Contacter ITC par email"
+                            title="Contacter ITC par email"
+                            ><span
+                              class="fab fa-google-plus-g"
+                              aria-hidden="true"
+                            ></span
+                            ><span class="visually-hidden"
+                              >Email Ivoire Techno Com</span
+                            ></a
+                          >
                         </li>
                       </ul>
                     </div>
@@ -625,10 +869,7 @@
             </div>
           </div>
         </div>
-        <div
-          class="text-center p-3"
-          style="background-color: rgba(255, 129, 198, 0.2)"
-        >
+        <div class="text-center p-3 testimonials-footer-strip">
           © 2025 Tous droits réservés |
           <a class="text-white text-decoration-none fw-bold" href="index.html"
             >Ivoire Techno Com (ITC)</a
@@ -651,3 +892,6 @@
     <script src="js/script.js"></script>
   </body>
 </html>
+
+
+

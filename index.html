@@ -38,6 +38,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
+    <link href="css/itc-modern.css" rel="stylesheet" />
     <link href="css/logos-scroll.css" rel="stylesheet" />
 
     <link
@@ -55,7 +56,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      content="width=device-width, initial-scale=1.0"
     />
     <!--[if lt IE 9
       ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
@@ -63,9 +64,19 @@
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
     <style>
       :root {
-        --itc-orange: #ff6600;
-        --itc-black: #0f0f0f;
-        --itc-glass: rgba(15, 15, 15, 0.75);
+        --itc-violet: #6f187f;
+        --itc-violet-deep: #531062;
+        --itc-magenta: #ec0a92;
+        --itc-magenta-soft: #ff4ab2;
+        --itc-ink: #120c1c;
+        --itc-ink-soft: #221334;
+        --itc-surface: #fff7fd;
+        --itc-orange: var(--itc-magenta);
+        --itc-black: var(--itc-ink);
+        --itc-gradient: linear-gradient(135deg, var(--itc-magenta), var(--itc-violet));
+        --itc-gradient-soft: linear-gradient(140deg, #ffd8f1, #f3d8ff 48%, #ffe3f4);
+        --itc-shadow: 0 24px 50px rgba(64, 8, 79, 0.2);
+        --itc-glass: rgba(18, 12, 28, 0.78);
         --itc-border: rgba(255, 255, 255, 0.15);
       }
 
@@ -78,8 +89,8 @@
         width: calc(100% - 40px);
         max-width: 1100px;
         background: var(--itc-glass);
-        backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
+        backdrop-filter: blur(14px);
         border: 1px solid var(--itc-border);
         border-radius: 22px;
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
@@ -104,6 +115,456 @@
       .btn-refuse{background:transparent;border:1px solid #aaa;color:#fff}
       .btn-settings{background:rgba(255,255,255,0.12);color:#fff}
       @media (max-width: 768px){.cookie-container{flex-direction:column;align-items:stretch}.cookie-actions{flex-direction:column}.btn-cookie{width:100%}}
+
+      body {
+        background:
+          radial-gradient(circle at 8% -10%, rgba(236, 10, 146, 0.18), transparent 36%),
+          radial-gradient(circle at 92% 10%, rgba(111, 24, 127, 0.2), transparent 35%),
+          var(--itc-surface);
+      }
+
+      .header-top {
+        background: linear-gradient(100deg, var(--itc-violet-deep), var(--itc-violet));
+      }
+
+      .header-style-one .header-upper {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.88);
+        border-bottom: 1px solid rgba(111, 24, 127, 0.12);
+      }
+
+      .main-menu .navigation > li > a {
+        position: relative;
+        letter-spacing: 0.02em;
+        font-weight: 700;
+      }
+
+      .main-menu .navigation > li > a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 3px;
+        border-radius: 20px;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.25s ease;
+        background: var(--itc-gradient);
+      }
+
+      .main-menu .navigation > li:hover > a::after,
+      .main-menu .navigation > li.current > a::after {
+        transform: scaleX(1);
+      }
+
+      .main-slider .slide .image-layer::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(103deg, rgba(18, 12, 28, 0.8) 25%, rgba(18, 12, 28, 0.22) 62%, rgba(111, 24, 127, 0.42));
+      }
+
+      .main-slider .content {
+        max-width: 760px;
+        padding: 38px;
+        border-radius: 26px;
+        background: rgba(23, 14, 34, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        box-shadow: var(--itc-shadow);
+      }
+
+      .main-slider .content h2 {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(30px, 4.3vw, 58px);
+        line-height: 1.08em;
+        font-weight: 800;
+        text-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+      }
+
+      .main-slider .content .text {
+        color: #f5eefe;
+        font-size: 18px;
+      }
+
+      .theme-btn.btn-style-one,
+      .theme-btn.btn-style-two {
+        border-radius: 999px;
+        border: none;
+        box-shadow: 0 14px 30px rgba(111, 24, 127, 0.28);
+        background: var(--itc-gradient);
+      }
+
+      .theme-btn.btn-style-one .txt,
+      .theme-btn.btn-style-two .txt {
+        letter-spacing: 0.03em;
+        font-weight: 700;
+      }
+
+      .services-section,
+      .project-section,
+      .testimonial-section,
+      .news-section,
+      .references-section,
+      .featured-section {
+        position: relative;
+      }
+
+      .services-section .title-box h2,
+      .project-section .title-box h2,
+      .sec-title h2,
+      .sec-title-two h2,
+      .featured-section .title-box h2 {
+        font-family: "Outfit", sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--itc-ink);
+      }
+
+      .service-block .inner-box,
+      .service-block-two .inner-box,
+      .news-block .inner-box,
+      .testimonial-block .inner-box,
+      .feature-block .inner-box {
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(44, 21, 66, 0.12);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(111, 24, 127, 0.12);
+      }
+
+      .service-block .inner-box:hover,
+      .service-block-two .inner-box:hover,
+      .news-block .inner-box:hover,
+      .testimonial-block .inner-box:hover,
+      .feature-block .inner-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 40px rgba(44, 21, 66, 0.2);
+      }
+
+      .service-block .inner-box .lower-content,
+      .news-block .inner-box .lower-content,
+      .feature-block .inner-box .lower-content {
+        background: #fff;
+      }
+
+      .service-block .inner-box .lower-content h3 a,
+      .news-block .inner-box .lower-content h3 a,
+      .feature-block .inner-box .lower-content h3 a,
+      .project-section .filters li.active,
+      .project-section .filters li:hover {
+        color: var(--itc-violet);
+      }
+
+      .service-block .inner-box .lower-content .read-more,
+      .news-block .inner-box .lower-content .read-more,
+      .service-block-two .inner-box .content .read-more,
+      .feature-block .inner-box .lower-content .read-more {
+        color: var(--itc-magenta);
+        font-weight: 700;
+      }
+
+      .services-section-two {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .services-section-two::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, rgba(22, 11, 32, 0.8), rgba(111, 24, 127, 0.55));
+        z-index: -1;
+      }
+
+      .services-section-two .sec-title h2,
+      .services-section-two .sec-title .text,
+      .services-section-two .inner-box .content h3 a,
+      .services-section-two .inner-box .content .text,
+      .services-section-two .inner-box .content .icon-box {
+        color: #ffffff !important;
+      }
+
+      /* Keep section-two cards readable on top of image backgrounds */
+      .services-section-two .service-block-two .inner-box {
+        background: rgba(26, 14, 39, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+      }
+
+      /* Safety fallback: ensure key blocks remain visible even if animation libs fail */
+      .services-section .service-block,
+      .services-section-two .service-block-two,
+      .project-section .gallery-item,
+      .testimonial-section .testimonial-block,
+      .news-section .news-block,
+      .featured-section .feature-block {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .services-section .wow,
+      .services-section-two .wow,
+      .project-section .wow,
+      .testimonial-section .wow,
+      .news-section .wow {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      /* Compact cards so all blocks fit better in Services and News sections */
+      .services-section .service-block .inner-box .image img,
+      .news-section .news-block .inner-box .image img {
+        width: 100%;
+        height: 210px;
+        object-fit: cover;
+        transform: none !important;
+      }
+
+      .services-section .service-block .inner-box .lower-content {
+        padding-top: 16px;
+      }
+
+      .services-section .service-block .inner-box .lower-content h3 {
+        font-size: 20px;
+      }
+
+      .news-section .news-block .inner-box .lower-content {
+        padding: 22px 18px 18px;
+      }
+
+      .news-section .news-block .inner-box .lower-content h3 {
+        font-size: 18px;
+        line-height: 1.4em;
+        margin-top: 10px;
+      }
+
+      /* Final polish: equal-height cards for Services and News on desktop */
+      .services-section .row.clearfix > .service-block,
+      .news-section .row.clearfix > .news-block {
+        display: flex;
+      }
+
+      .services-section .service-block .inner-box,
+      .news-section .news-block .inner-box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .services-section .service-block .inner-box .lower-content,
+      .news-section .news-block .inner-box .lower-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .services-section .service-block .inner-box .lower-content .read-more,
+      .news-section .news-block .inner-box .lower-content .read-more {
+        margin-top: auto;
+      }
+
+      @media (max-width: 767px) {
+        .services-section .service-block .inner-box .image img,
+        .news-section .news-block .inner-box .image img {
+          height: 180px;
+        }
+
+        .services-section .row.clearfix > .service-block,
+        .news-section .row.clearfix > .news-block {
+          display: block;
+        }
+      }
+
+      .project-section .filters li {
+        border-radius: 999px;
+        border: 1px solid rgba(111, 24, 127, 0.2);
+        background: #fff;
+      }
+
+      .project-section .filters li.active,
+      .project-section .filters li:hover {
+        background: var(--itc-gradient-soft);
+        border-color: rgba(111, 24, 127, 0.35);
+      }
+
+      .project-section .more-projects .projects {
+        border-radius: 999px;
+        background: var(--itc-gradient);
+        color: #fff;
+      }
+
+      .testimonial-section {
+        background: linear-gradient(180deg, #fff, #fff5fd);
+      }
+
+      .featured-section::before,
+      .call-to-action-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(21, 10, 33, 0.76), rgba(111, 24, 127, 0.45));
+      }
+
+      .featured-section .auto-container,
+      .call-to-action-section .auto-container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .featured-section .title-box h2,
+      .call-to-action-section h2,
+      .call-to-action-section .text {
+        color: #ffffff;
+      }
+
+      .references-section {
+        background: var(--itc-gradient-soft) !important;
+      }
+
+      .announcement-banner {
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(255, 255, 255, 0.35);
+      }
+
+      .announcement-banner .flash-infos-btn {
+        border: none;
+        color: #fff;
+        background: var(--itc-gradient);
+      }
+
+      .logo-main {
+        width: 100px;
+      }
+
+      .search-form-positioned {
+        position: relative;
+      }
+
+      .slide-bg-noel {
+        background-image: url(images/image-banière-noel.png);
+      }
+
+      .slide-bg-itc5 {
+        background-image: url(images/image-banière-itc5.png);
+      }
+
+      .slide-bg-can {
+        background-image: url(images/image-banière-can.png);
+      }
+
+      .services-section-two-bg {
+        background-image: url(images/image-banière-modif-01.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .featured-section-bg {
+        background-image: url(images/freepik__the-style-is-candid-image-photography-with-natural__93357.png);
+      }
+
+      .call-to-action-bg {
+        background-image: url(images/affiche-itc.jpeg);
+      }
+
+      .announcement-banner-fixed {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: rgba(255, 105, 180, 0.8);
+      }
+
+      .announcement-scroll {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 14px;
+        color: #ffd84d;
+      }
+
+      .announcement-track {
+        display: inline-block;
+        padding-left: 100%;
+        animation: itcTicker 45s linear infinite;
+      }
+
+      .announcement-track span {
+        display: inline-block;
+        padding-right: 70px;
+      }
+
+      .announcement-scroll a {
+        color: #ffffff;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      .newsletter-message {
+        margin-top: 10px;
+        display: none;
+      }
+
+      .footer-bottom-strip {
+        background-color: rgba(255, 129, 198, 0.2);
+      }
+
+      @keyframes itcTicker {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .main-footer {
+        background: linear-gradient(160deg, #170b27, #2c1142 60%, #471460);
+      }
+
+      .main-footer .social-icons li a,
+      .main-footer .contact-widget .contact-number {
+        color: var(--itc-magenta-soft);
+      }
+
+      @media (max-width: 991px) {
+        .main-slider .content {
+          padding: 26px;
+          margin: 0 14px;
+          border-radius: 20px;
+        }
+
+        .main-slider .content .text {
+          font-size: 16px;
+        }
+
+        .project-section .filters li {
+          margin-bottom: 10px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .service-block .inner-box,
+        .service-block-two .inner-box,
+        .news-block .inner-box,
+        .testimonial-block .inner-box,
+        .feature-block .inner-box,
+        .theme-btn {
+          transition: none !important;
+        }
+
+        .announcement-track {
+          animation: none;
+          padding-left: 0;
+          white-space: normal;
+        }
+      }
     </style>
   </head>
 
@@ -161,7 +622,7 @@
             <div class="auto-container clearfix">
               <!--Info-->
               <div class="logo-outer">
-                <div class="logo mh-100" style="width: 100px">
+                <div class="logo mh-100 logo-main">
                   <a href="index.html">
                     <img
                       src="images/nouveau-logo-itc.png"
@@ -198,7 +659,7 @@
                     class="collapse navbar-collapse clearfix"
                     id="navbarSupportedContent"
                   >
-                    <u class="navigation clearfix">
+                    <ul class="navigation clearfix">
                       
                         <li><a href="index.html">Accueil</a></li>
                     
@@ -274,19 +735,19 @@
             <div class="social-links">
               <ul class="clearfix">
                 <li>
-                  <a href="#"><span class="fab fa-twitter"></span></a>
+                  <a href="#" aria-label="Twitter ITC" title="Twitter ITC"><span class="fab fa-twitter"></span></a>
                 </li>
                 <li>
-                  <a href="#"><span class="fab fa-facebook-square"></span></a>
+                  <a href="#" aria-label="Facebook ITC" title="Facebook ITC"><span class="fab fa-facebook-square"></span></a>
                 </li>
                 <li>
-                  <a href="#"><span class="fab fa-pinterest-p"></span></a>
+                  <a href="#" aria-label="Pinterest ITC" title="Pinterest ITC"><span class="fab fa-pinterest-p"></span></a>
                 </li>
                 <li>
-                  <a href="#"><span class="fab fa-instagram"></span></a>
+                  <a href="#" aria-label="Instagram ITC" title="Instagram ITC"><span class="fab fa-instagram"></span></a>
                 </li>
                 <li>
-                  <a href="#"><span class="fab fa-youtube"></span></a>
+                  <a href="#" aria-label="YouTube ITC" title="YouTube ITC"><span class="fab fa-youtube"></span></a>
                 </li>
               </ul>
             </div>
@@ -300,10 +761,10 @@
     <div class="close-search-btn"><span class="icon flaticon-cancel"></span></div> 
     
     <div class="search-form-itc">
-        <form id="global-search-form" action="projects-classic.html" method="get" style="position: relative;">
+      <form id="global-search-form" class="search-form-positioned" action="projects-classic.html" method="get">
     <div class="form-group d-flex">
         <input type="text" id="search-input" name="q" placeholder="Rechercher un service ITC..." autocomplete="off" required>
-        <button type="submit"><span class="icon flaticon-magnifying-glass-1"></span></button>
+      <button type="submit" aria-label="Lancer la recherche" title="Lancer la recherche"><span class="icon flaticon-magnifying-glass-1"></span></button>
     </div>
     <div id="search-suggestions" class="search-suggestions-list"></div>
 </form>
@@ -317,12 +778,7 @@
           <div class="banner-carousel owl-theme owl-carousel">
             <!-- Slide -->
             <div class="slide">
-              <div
-                class="image-layer"
-                style="
-                  background-image: url(images/image-banière-noel.png);
-                "
-              ></div>
+              <div class="image-layer slide-bg-noel"></div>
               <div class="auto-container">
                 <div class="content">
                    <h2>
@@ -343,10 +799,7 @@
 
             <!-- Slide -->
             <div class="slide">
-              <div
-                class="image-layer"
-                style="background-image: url(images/image-banière-itc5.png)"
-              ></div>
+              <div class="image-layer slide-bg-itc5"></div>
               <div class="auto-container">
                 <div class="content">
                   <h2 class="text-primary">
@@ -368,12 +821,7 @@
 
             <!-- Slide -->
             <div class="slide">
-              <div
-                class="image-layer"
-                style="
-                  background-image: url(images/image-banière-can.png);
-                "
-              ></div>
+              <div class="image-layer slide-bg-can"></div>
               <div class="auto-container">
                 <div class="content">
                   <h2  class="text-warning">
@@ -503,12 +951,12 @@
       <!-- End Services Section -->
 
       <!-- Services Section Two -->
-      <section class="services-section-two" style="background-image:  url(images/image-banière-modif-01.png); background-repeat: no-repeat; background-size: cover">
+      <section class="services-section-two services-section-two-bg">
         <div class="auto-container">
           <!-- Sec Title -->
           <div class="sec-title">
-            <h2 style="color: aliceblue;">Pourquoi Choisir ITC ?</h2>
-            <div class="text" style="color: blue;">
+            <h2>Pourquoi Choisir ITC ?</h2>
+            <div class="text">
               Ivoire Techno Com met à votre disposition son expertise technique,
               une équipe dévouée, et des solutions sur mesure pour répondre à
               vos attentes.
@@ -652,11 +1100,13 @@
                             data-fancybox="gallery-1"
                             data-caption=""
                             class="link"
+                            aria-label="Agrandir image Installation de Fibre Optique Abidjan"
+                            title="Agrandir l'image"
                             ><span
                               class="icon flaticon-magnifying-glass-1"
                             ></span
                           ></a>
-                          <a href="hospitality-design.html" class="link"
+                          <a href="hospitality-design.html" class="link" aria-label="Voir le projet Installation de Fibre Optique Abidjan" title="Voir le projet"
                             ><span class="icon flaticon-unlink"></span
                           ></a>
                         </div>
@@ -687,11 +1137,13 @@
                             data-fancybox="gallery-1"
                             data-caption=""
                             class="link"
+                            aria-label="Agrandir image Installation Réseaux"
+                            title="Agrandir l'image"
                             ><span
                               class="icon flaticon-magnifying-glass-1"
                             ></span
                           ></a>
-                          <a href="hospitality-design.html" class="link"
+                          <a href="hospitality-design.html" class="link" aria-label="Voir le projet Installation Réseaux" title="Voir le projet"
                             ><span class="icon flaticon-unlink"></span
                           ></a>
                         </div>
@@ -725,11 +1177,13 @@
                             data-fancybox="gallery-1"
                             data-caption=""
                             class="link"
+                            aria-label="Agrandir image Maintenance Réseaux Telecom"
+                            title="Agrandir l'image"
                             ><span
                               class="icon flaticon-magnifying-glass-1"
                             ></span
                           ></a>
-                          <a href="office-interior.html" class="link"><span class="icon flaticon-unlink"></span
+                          <a href="office-interior.html" class="link" aria-label="Voir le projet Maintenance Réseaux Telecom" title="Voir le projet"><span class="icon flaticon-unlink"></span
                           ></a>
                         </div>
                       </div>
@@ -760,11 +1214,13 @@
                             data-fancybox="gallery-1"
                             data-caption=""
                             class="link"
+                            aria-label="Agrandir image Déplacement Réseau"
+                            title="Agrandir l'image"
                             ><span
                               class="icon flaticon-magnifying-glass-1"
                             ></span
                           ></a>
-                          <a href="deplacement-reseau.html" class="link"
+                          <a href="deplacement-reseau.html" class="link" aria-label="Voir le projet Déplacement Réseau" title="Voir le projet"
                             ><span class="icon flaticon-unlink"></span
                           ></a>
                         </div>
@@ -815,7 +1271,6 @@
           <!--Image Column-->
           <!-- <div
             class="image-column"
-            style="background-image: url(images/image-team-dt04.png)"
           >
             <div class="inner-column">
               <div class="image">
@@ -898,10 +1353,7 @@
       <!-- End Testimonial Section -->
 
       <!-- Featured Section -->
-      <section
-        class="featured-section"
-        style="background-image: url(images/freepik__the-style-is-candid-image-photography-with-natural__93357.png)"
-      >
+      <section class="featured-section featured-section-bg">
         <div class="auto-container">
           <!-- Title Box -->
           <div class="title-box">
@@ -1170,10 +1622,7 @@
       </section>
 
       <!-- Call To Action Section -->
-      <section
-        class="call-to-action-section"
-        style="background-image: url(images/affiche-itc.jpeg)"
-      >
+      <section class="call-to-action-section call-to-action-bg">
         <div class="auto-container">
           <h2>Choisissez Ivoire Techno Com</h2>
           <div class="text">
@@ -1188,13 +1637,16 @@
       <!-- End Call To Action Section -->
 
       <!-- Announcement Banner -->
-      <div class="announcement-banner text-white py-2" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 1000; background-color: rgba(255, 105, 180, 0.8);">
+      <div class="announcement-banner announcement-banner-fixed text-white py-2">
         <div class="container-fluid">
           <div class="row align-items-center">
             <div class="col-md-10">
-              <marquee behavior="scroll" direction="left" scrollamount="5" style="font-size: 14px;">
-                Bienvenue sur le site d'Ivoire Techno Com (ITC) | Horaires d'ouverture : Du lundi au vendredi de 8h à 17h et les samedis de 8h à 13h. Fermé les jours fériés. | ITC vous Souhaite une bonne et heureuse année 2026 ! ITC – Réinventer la communication, fibre après fibre.
-              </marquee>
+              <div class="announcement-scroll" role="status" aria-live="polite">
+                <p class="announcement-track mb-0">
+                  <span>Bienvenue sur le site Ivoire Techno Com (ITC) | Horaires d'ouverture : Du lundi au vendredi de 8h à 17h et les samedis de 8h à 13h. Fermé les jours fériés. | Pour toutes informations suplémentaires veuillez nous contacter par Email sur <a href="mailto:siteweb@ivoiretechnocom.ci" aria-label="Envoyer un email à ITC" title="Envoyer un email à ITC">siteweb@ivoiretechnocom.ci</a></span>
+                  <span>ITC vous souhaite une bonne et heureuse année 2026 ! ITC - Réinventer la communication, fibre après fibre.</span>
+                </p>
+              </div>
             </div>
             <div class="col-md-2 text-center">
               <button class="btn btn-light btn-sm flash-infos-btn">Flash Infos</button>
@@ -1229,21 +1681,21 @@
                       </div>
                       <ul class="social-icons">
                         <li>
-                          <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"
-                            ><span class="fab fa-facebook-f"></span
+                          <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook Ivoire Techno Com" title="Facebook Ivoire Techno Com"
+                            ><span class="fab fa-facebook-f" aria-hidden="true"></span><span class="visually-hidden">Facebook Ivoire Techno Com</span
                           ></a>
                         </li>
                         <li>
-                          <a href="#"
-                            ><span class="fab fa-linkedin-in"></span
+                          <a href="#" aria-label="LinkedIn Ivoire Techno Com" title="LinkedIn Ivoire Techno Com"
+                            ><span class="fab fa-linkedin-in" aria-hidden="true"></span><span class="visually-hidden">LinkedIn Ivoire Techno Com</span
                           ></a>
                         </li>
                         <li>
-                          <a href="https://www.instagram.com/ivoiretechnocom?igsh=bnVpZzEzNTZ1Nmxv&utm_source=ig_contact_invite"><span class="fab fa-instagram"></span></a>
+                          <a href="https://www.instagram.com/ivoiretechnocom?igsh=bnVpZzEzNTZ1Nmxv&utm_source=ig_contact_invite" aria-label="Instagram Ivoire Techno Com" title="Instagram Ivoire Techno Com"><span class="fab fa-instagram" aria-hidden="true"></span><span class="visually-hidden">Instagram Ivoire Techno Com</span></a>
                         </li>
                        <li>
-                          <a href="mailto:siteweb@ivoiretechnocom.ci"
-                            ><span class="fab fa-google-plus-g"></span
+                          <a href="mailto:siteweb@ivoiretechnocom.ci" aria-label="Contacter ITC par email" title="Contacter ITC par email"
+                            ><span class="fab fa-google-plus-g" aria-hidden="true"></span><span class="visually-hidden">Email Ivoire Techno Com</span
                           ></a>
                         </li>
                       </ul>
@@ -1307,7 +1759,7 @@
         </button>
     </div>
 </form>
-<div id="newsletter-message" style="margin-top: 10px; display: none;"></div>
+<div id="newsletter-message" class="newsletter-message"></div>
                       </div>
                     </div>
                   </div>
@@ -1393,10 +1845,7 @@
     }
 });
           </script>
-        <div
-        class="text-center p-3"
-        style="background-color: rgba(255, 129, 198, 0.2)"
-      >
+        <div class="text-center p-3 footer-bottom-strip">
         © 2025 Tous droits réservés |
         <a class="text-white text-decoration-none fw-bold" href="#"
           >Ivoire Techno Com (ITC)</a
@@ -1449,5 +1898,26 @@ document.getElementById('global-search-form').addEventListener('submit', functio
     // Si aucun mot-clé n'est trouvé, on laisse Git/Express gérer la recherche par défaut
 });
 </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.AOS) {
+        AOS.init({ duration: 900, once: true, offset: 80, easing: "ease-out-cubic" });
+
+        var animatedItems = document.querySelectorAll(
+          ".services-section .service-block, .services-section-two .service-block-two, .project-section .gallery-item, .news-section .news-block, .featured-section .feature-block"
+        );
+
+        animatedItems.forEach(function (el, i) {
+          if (!el.hasAttribute("data-aos")) {
+            el.setAttribute("data-aos", "fade-up");
+            el.setAttribute("data-aos-delay", String((i % 3) * 120));
+          }
+        });
+      }
+    });
+  </script>
   </body>
 </html>
+
+
+

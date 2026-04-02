@@ -11,6 +11,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
+    <link href="css/itc-modern.css" rel="stylesheet" />
 
     <link
       rel="shortcut icon"
@@ -27,15 +28,256 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      content="width=device-width, initial-scale=1.0"
     />
     <!--[if lt IE 9
       ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
     ><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <style>
+      :root {
+        --itc-violet: #6f187f;
+        --itc-violet-deep: #531062;
+        --itc-magenta: #ec0a92;
+        --itc-ink: #120c1c;
+        --itc-surface: #fff7fd;
+        --itc-gradient: linear-gradient(135deg, var(--itc-magenta), var(--itc-violet));
+      }
+
+      .team-modern {
+        background:
+          radial-gradient(circle at 8% -10%, rgba(236, 10, 146, 0.15), transparent 35%),
+          radial-gradient(circle at 92% 12%, rgba(111, 24, 127, 0.16), transparent 33%),
+          var(--itc-surface);
+      }
+
+      .team-modern .header-top {
+        background: linear-gradient(100deg, var(--itc-violet-deep), var(--itc-violet));
+      }
+
+      .team-modern .header-style-one .header-upper {
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(111, 24, 127, 0.13);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+      }
+
+      .team-logo-main {
+        width: 100px;
+      }
+
+      .team-modern .main-menu .navigation > li > a {
+        position: relative;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .team-modern .main-menu .navigation > li > a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 3px;
+        border-radius: 99px;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.25s ease;
+        background: var(--itc-gradient);
+      }
+
+      .team-modern .main-menu .navigation > li:hover > a::after,
+      .team-modern .main-menu .navigation > li.current > a::after {
+        transform: scaleX(1);
+      }
+
+      .team-page-title-bg {
+        background-image: url(images/image-banière-itc.png);
+      }
+
+      .team-modern .page-title {
+        position: relative;
+      }
+
+      .team-modern .page-title::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, rgba(18, 12, 28, 0.78), rgba(111, 24, 127, 0.5));
+      }
+
+      .team-modern .page-title .auto-container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .team-modern .team-page-section {
+        position: relative;
+        padding: 90px 0 70px;
+        overflow: hidden;
+      }
+
+      .team-modern .team-page-section .sec-title h2 {
+        font-family: "Outfit", sans-serif;
+        font-size: clamp(30px, 3.8vw, 50px);
+        font-weight: 800;
+        color: var(--itc-ink);
+      }
+
+      .team-modern .team-page-section .sec-title .text {
+        max-width: 980px;
+      }
+
+      .team-modern .team-block {
+        display: flex;
+      }
+
+      .team-modern .team-block .inner-box {
+        width: 100%;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(111, 24, 127, 0.12);
+        box-shadow: 0 14px 32px rgba(44, 21, 66, 0.14);
+        transition: transform 0.28s ease, box-shadow 0.28s ease;
+        background: #fff;
+      }
+
+      .team-modern .team-block .inner-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 42px rgba(44, 21, 66, 0.2);
+      }
+
+      .team-modern .team-block .inner-box .image {
+        background: #0f0f0f;
+      }
+
+      .team-modern .team-block .inner-box .image img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+      }
+
+      .team-modern .team-block .inner-box:hover .image img {
+        transform: scale(1.05);
+        opacity: 0.88;
+      }
+
+      .team-modern .team-block .overlay-box {
+        background: linear-gradient(180deg, rgba(18, 12, 28, 0.1), rgba(18, 12, 28, 0.75));
+      }
+
+      .team-modern .team-block .overlay-box .social-icons li a {
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+      }
+
+      .team-modern .team-block .lower-content {
+        padding: 16px 14px 18px;
+      }
+
+      .team-modern .team-block .lower-content h3 a {
+        color: var(--itc-violet);
+        font-size: 18px;
+        line-height: 1.3em;
+      }
+
+      .team-modern .team-block .lower-content .designation {
+        color: #51335f;
+      }
+
+      .team-modern .team-page-section .team-block,
+      .team-modern .team-page-section .team-block .inner-box,
+      .team-modern .team-page-section .team-block .lower-content {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .announcement-banner {
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(255, 255, 255, 0.35);
+      }
+
+      .announcement-banner-fixed {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: rgba(255, 105, 180, 0.8);
+      }
+
+      .announcement-scroll {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 14px;
+        color: #ffd84d;
+      }
+
+      .announcement-track {
+        display: inline-block;
+        padding-left: 100%;
+        animation: itcTicker 32s linear infinite;
+      }
+
+      .announcement-track span {
+        display: inline-block;
+        padding-right: 70px;
+      }
+
+      .announcement-scroll a {
+        color: #ffffff;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      .flash-infos-btn {
+        border: none;
+        color: #fff;
+        background: linear-gradient(135deg, #ec0a92, #6f187f);
+      }
+
+      @keyframes itcTicker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .team-modern .team-block .inner-box,
+        .team-modern .team-block .inner-box .image img {
+          transition: none !important;
+        }
+
+        .announcement-track {
+          animation: none;
+          padding-left: 0;
+          white-space: normal;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .team-modern .team-block {
+          display: block;
+        }
+
+        .team-modern .team-block .inner-box .image img {
+          height: 220px;
+        }
+      }
+
+      .team-footer-strip {
+        background-color: rgba(255, 129, 198, 0.2);
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="team-modern">
     <div class="page-wrapper">
       <!-- Preloader -->
       <div class="preloader"></div>
@@ -71,7 +313,7 @@
             <div class="auto-container clearfix">
               <!--Info-->
               <div class="logo-outer">
-                <div class="logo mh-100" style="width: 100px">
+                <div class="logo mh-100 team-logo-main">
                   <a href="index.html">
                     <img
                       src="images/nouveau-logo-itc.png"
@@ -189,16 +431,16 @@
             <div class="social-links">
               <ul class="clearfix">
                 <li>
-                  <a href="#"><span class="fab fa-twitter"></span></a>
+                  <a href="#" aria-label="Twitter ITC" title="Twitter ITC"><span class="fab fa-twitter" aria-hidden="true"></span><span class="visually-hidden">Twitter ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><span class="fab fa-facebook-square"></span></a>
+                  <a href="#" aria-label="Facebook ITC" title="Facebook ITC"><span class="fab fa-facebook-square" aria-hidden="true"></span><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><span class="fab fa-pinterest-p"></span></a>
+                  <a href="#" aria-label="Pinterest ITC" title="Pinterest ITC"><span class="fab fa-pinterest-p" aria-hidden="true"></span><span class="visually-hidden">Pinterest ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><span class="fab fa-instagram"></span></a>
+                  <a href="#" aria-label="Instagram ITC" title="Instagram ITC"><span class="fab fa-instagram" aria-hidden="true"></span><span class="visually-hidden">Instagram ITC</span></a>
                 </li>
               </ul>
             </div>
@@ -214,17 +456,14 @@
         <form action="projects-classic.html" method="get">
             <div class="form-group d-flex">
                 <input type="text" name="q" placeholder="Rechercher sur le site..." required>
-                <button type="submit"><span class="icon flaticon-magnifying-glass-1"></span></button>
+                <button type="submit" aria-label="Lancer la recherche" title="Lancer la recherche"><span class="icon flaticon-magnifying-glass-1"></span></button>
             </div>
         </form>
     </div>
 </div>
 
       <!--Page Title-->
-      <section
-        class="page-title"
-        style="background-image: url(images/image-banière-itc.png)"
-      >
+      <section class="page-title team-page-title-bg">
         <div class="auto-container">
           <h2>Notre Equipe</h2>
           <ul class="page-breadcrumb">
@@ -260,10 +499,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -286,10 +525,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -313,10 +552,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -338,10 +577,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -365,10 +604,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -392,10 +631,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -419,10 +658,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                
               </ul>
@@ -442,10 +681,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -465,10 +704,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -488,10 +727,10 @@
             <div class="overlay-box">
               <ul class="social-icons">
                 <li>
-                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
+                  <a href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL" aria-label="Facebook ITC" title="Facebook ITC"><i class="fab fa-facebook" aria-hidden="true"></i><span class="visually-hidden">Facebook ITC</span></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" aria-label="LinkedIn ITC" title="LinkedIn ITC"><i class="fab fa-linkedin" aria-hidden="true"></i><span class="visually-hidden">LinkedIn ITC</span></a>
                 </li>
                 
               </ul>
@@ -510,6 +749,24 @@
 </section>
       </section>
       <!-- End Story Section -->
+
+      <!-- Announcement Banner -->
+      <div class="announcement-banner announcement-banner-fixed text-white py-2">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-md-10">
+              <div class="announcement-scroll" role="status" aria-live="polite">
+                <p class="announcement-track mb-0">
+                  <span>Bienvenue sur le site Ivoire Techno Com (ITC) | Horaires d'ouverture : Du lundi au vendredi de 8h à 17h et les samedis de 8h à 13h. Fermé les jours fériés. | Pour toutes informations suplémentaires veuillez nous contacter par Email sur <a href="mailto:siteweb@ivoiretechnocom.ci" aria-label="Envoyer un email à ITC" title="Envoyer un email à ITC">siteweb@ivoiretechnocom.ci</a></span>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-2 text-center">
+              <button class="btn btn-light btn-sm flash-infos-btn">Flash Infos</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!--Main Footer-->
       <footer class="main-footer">
@@ -539,23 +796,31 @@
                         <li>
                           <a
                             href="https://www.facebook.com/profile.php?id=61583879289870&mibextid=ZbWKwL"
-                            ><span class="fab fa-facebook-f"></span
+                            aria-label="Facebook Ivoire Techno Com"
+                            title="Facebook Ivoire Techno Com"
+                            ><span class="fab fa-facebook-f" aria-hidden="true"></span><span class="visually-hidden">Facebook Ivoire Techno Com</span
                           ></a>
                         </li>
                         <li>
                           <a href="#"
-                            ><span class="fab fa-linkedin-in"></span
+                            aria-label="LinkedIn Ivoire Techno Com"
+                            title="LinkedIn Ivoire Techno Com"
+                            ><span class="fab fa-linkedin-in" aria-hidden="true"></span><span class="visually-hidden">LinkedIn Ivoire Techno Com</span
                           ></a>
                         </li>
                         <li>
                           <a
                             href="https://www.instagram.com/ivoiretechnocom?igsh=bnVpZzEzNTZ1Nmxv&utm_source=ig_contact_invite"
-                            ><span class="fab fa-instagram"></span
+                            aria-label="Instagram Ivoire Techno Com"
+                            title="Instagram Ivoire Techno Com"
+                            ><span class="fab fa-instagram" aria-hidden="true"></span><span class="visually-hidden">Instagram Ivoire Techno Com</span
                           ></a>
                         </li>
                         <li>
                           <a href="mailto:siteweb@ivoiretechnocom.ci"
-                            ><span class="fab fa-google-plus-g"></span
+                            aria-label="Contacter ITC par email"
+                            title="Contacter ITC par email"
+                            ><span class="fab fa-google-plus-g" aria-hidden="true"></span><span class="visually-hidden">Email Ivoire Techno Com</span
                           ></a>
                         </li>
                       </ul>
@@ -646,10 +911,7 @@
             </div>
           </div>
         </div>
-        <div
-          class="text-center p-3"
-          style="background-color: rgba(255, 129, 198, 0.2)"
-        >
+        <div class="text-center p-3 team-footer-strip">
           © 2025 Tous droits réservés |
           <a class="text-white text-decoration-none fw-bold" href="index.html"
             >Ivoire Techno Com (ITC)</a
@@ -672,3 +934,7 @@
     <script src="js/script.js"></script>
   </body>
 </html>
+
+
+
+
