@@ -11,6 +11,28 @@
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
     <link href="css/itc-modern.css" rel="stylesheet" />
+    <style>
+      .deplacement-reseau-page .main-header .header-upper {
+        background-color: rgba(15, 15, 15, 0.95);
+      }
+
+      .deplacement-banner {
+        padding-top: 250px;
+      }
+
+      .deplacement-banner::before {
+        background-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(0, 0, 0, 0.6) 35%,
+          rgba(0, 0, 0, 0.45) 100%
+        );
+      }
+
+      .deplacement-banner .auto-container {
+        z-index: 2;
+      }
+    </style>
 
     <link
       rel="shortcut icon"
@@ -25,17 +47,14 @@
 
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--[if lt IE 9
       ]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script
     ><![endif]-->
     <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
   </head>
 
-  <body class="dark-layout">
+  <body class="dark-layout deplacement-reseau-page">
     <div class="page-wrapper">
       <!-- Preloader -->
       <div class="preloader"></div>
@@ -237,8 +256,10 @@
       </div>
 
       <section
-        class="page-title"
-        style="background-image: url(images/banière-itc-12.jpeg)"
+        class="page-title deplacement-banner"
+        style="
+          background-image: url(&quot;images/banni%C3%A8re-deplacement-reseau.png&quot;);
+        "
       >
         <div class="auto-container">
           <h2>Déplacement Réseau</h2>
@@ -385,7 +406,9 @@
                 <div class="sidebar-widget contact-widget">
                   <div
                     class="widget-content"
-                    style="background-image: url(images/banière-itc-12.jpeg)"
+                    style="
+                      background-image: url(&quot;images/banni%C3%A8re-deplacement-reseau.png&quot;);
+                    "
                   >
                     <h3>Besoin d'un Devis ?</h3>
                     <a href="contact.html" class="theme-btn btn-style-one"
@@ -574,6 +597,3 @@
     <script src="js/script.js"></script>
   </body>
 </html>
-
-
-
