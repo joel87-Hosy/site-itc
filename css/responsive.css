@@ -706,8 +706,8 @@
   .main-header .outer-box .search-box-btn .icon {
     padding-left: 0px;
     border-left: none;
-    padding-right: 20px;
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    padding-right: 0px;
+    border-right: none;
   }
 
   .header-style-five .header-lower,
@@ -743,6 +743,26 @@
     padding: 0;
     color: #ffffff;
     border-radius: 5px;
+  }
+
+  .header-style-one .outer-box {
+    display: block;
+    left: auto;
+    right: 58px;
+    top: 14px;
+    z-index: 12;
+  }
+
+  .header-style-one .outer-box .search-box-btn {
+    margin-left: 0;
+    margin-top: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .header-style-one.fixed-header .outer-box {
+    top: 10px;
   }
 
   .header-style-five .header-upper .info-outer {
@@ -1199,5 +1219,22 @@
 
   .director-word-section .content-column p:last-of-type {
     color: red !important;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .header-style-one .outer-box {
+    right: 52px;
+    top: 16px;
+  }
+
+  .header-style-one .outer-box .search-box-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .header-style-one.fixed-header .outer-box {
+    top: 10px;
   }
 }

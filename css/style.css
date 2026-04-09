@@ -1232,9 +1232,19 @@ img {
 .main-header .outer-box .search-box-btn {
   position: relative;
   float: right;
-  color: #ffffff;
-  padding: 29px 0px;
-  margin-left: 25px;
+  color: #6f187f;
+  width: 46px;
+  height: 46px;
+  margin-left: 16px;
+  margin-top: 18px;
+  padding: 0px;
+  border-radius: 999px;
+  border: 1px solid rgba(111, 24, 127, 0.26);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 24px rgba(44, 21, 66, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
   cursor: pointer;
   -webkit-transition: all 600ms ease;
@@ -1245,8 +1255,16 @@ img {
 }
 
 .main-header .outer-box .search-box-btn .icon {
-  padding-left: 20px;
-  border-left: 1px solid #888989;
+  padding-left: 0px;
+  border-left: none;
+}
+
+.main-header .outer-box .search-box-btn:hover {
+  transform: translateY(-2px);
+  color: #ec0a92;
+  border-color: rgba(236, 10, 146, 0.5);
+  background: #ffffff;
+  box-shadow: 0 14px 28px rgba(111, 24, 127, 0.24);
 }
 
 .main-header .outer-box .btn-box {
@@ -1283,7 +1301,7 @@ img {
 }
 
 .fixed-header .outer-box .search-box-btn {
-  padding: 24px 0px;
+  margin-top: 8px;
 }
 
 /* Header Style Two */
@@ -5173,17 +5191,21 @@ html {
   top: 100%;
   left: 0;
   right: 0;
-  background: #fff;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.26);
   z-index: 1000;
-  display: none; /* CachÃ© par dÃ©faut */
+  overflow: hidden;
+  display: none;
 }
 
 .suggestion-item {
   padding: 12px 20px;
   cursor: pointer;
-  color: #333;
+  color: #382246;
+  font-weight: 500;
   border-bottom: 1px solid #eee;
   transition: background 0.2s;
 }
@@ -5193,7 +5215,7 @@ html {
 }
 .suggestion-item:hover {
   background: #f8f9fa;
-  color: #ff6600;
+  color: #ec0a92;
 }
 
 /*** 
@@ -6939,63 +6961,121 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9); /* Fond sombre/transparent */
-  z-index: 99999; /* Assure qu'il est au-dessus des autres Ã©lÃ©ments */
+  background: linear-gradient(
+    140deg,
+    rgba(16, 10, 24, 0.86),
+    rgba(80, 15, 95, 0.78)
+  );
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease; /* Animation fluide */
+  transition: all 0.3s ease;
 }
 
-/* Classe pour rendre le pop-up visible */
 .search-popup-itc.visible {
   opacity: 1;
   visibility: visible;
 }
 
-/* Style du formulaire Ã  l'intÃ©rieur du pop-up */
 .search-form-itc {
-  max-width: 600px;
+  max-width: 680px;
   width: 90%;
   position: relative;
 }
 
-.search-form-itc input[type="text"] {
-  width: 100%;
-  padding: 15px 70px 15px 20px;
-  border: 2px solid #fff;
-  background: transparent;
-  color: #fff;
-  font-size: 18px;
-  border-radius: 5px;
-  outline: none;
+.search-form-itc .form-group {
+  position: relative;
+  margin: 0;
 }
 
-/* Style du bouton de soumission */
+.search-form-itc input[type="text"] {
+  width: 100%;
+  height: 62px;
+  padding: 14px 72px 14px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 17px;
+  border-radius: 999px;
+  outline: none;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.search-form-itc input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.search-form-itc input[type="text"]:focus {
+  border-color: rgba(255, 120, 204, 0.95);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 0 0 4px rgba(236, 10, 146, 0.22),
+    0 14px 34px rgba(0, 0, 0, 0.3);
+}
+
 .search-form-itc button {
   position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 60px;
-  background: transparent;
+  top: 7px;
+  right: 7px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   border: none;
+  background: linear-gradient(135deg, #ec0a92, #6f187f);
   color: #fff;
   font-size: 20px;
   cursor: pointer;
+  box-shadow: 0 10px 20px rgba(111, 24, 127, 0.34);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-/* Style du bouton de fermeture (le X) */
+.search-form-itc button:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 14px 24px rgba(111, 24, 127, 0.45);
+}
+
 .close-search-btn {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 26px;
+  right: 26px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   color: #fff;
-  font-size: 30px;
+  font-size: 26px;
   cursor: pointer;
   z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 767px) {
+  .search-form-itc input[type="text"] {
+    height: 56px;
+    font-size: 16px;
+    padding-right: 66px;
+  }
+
+  .search-form-itc button {
+    top: 6px;
+    right: 6px;
+    width: 44px;
+    height: 44px;
+  }
 }
 
 /* SOLUTION RADICALE (Ã€ utiliser si la premiÃ¨re solution Ã©choue) */
