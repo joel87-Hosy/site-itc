@@ -748,9 +748,13 @@
   .header-style-one .outer-box {
     display: block;
     left: auto;
-    right: 58px;
+    right: 0;
     top: 14px;
     z-index: 12;
+  }
+
+  .header-style-one .nav-outer .mobile-nav-toggler {
+    margin-right: 52px;
   }
 
   .header-style-one .outer-box .search-box-btn {
@@ -1224,13 +1228,17 @@
 
 @media only screen and (max-width: 360px) {
   .header-style-one .outer-box {
-    right: 52px;
+    right: 0;
     top: 16px;
   }
 
+  .header-style-one .nav-outer .mobile-nav-toggler {
+    margin-right: 46px;
+  }
+
   .header-style-one .outer-box .search-box-btn {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     font-size: 14px;
   }
 
