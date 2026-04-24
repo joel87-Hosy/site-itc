@@ -1358,7 +1358,7 @@ img {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #1b1b1b;
+  background-color: #ed9e9e;
 }
 
 /* Header Style Five */
@@ -2711,7 +2711,7 @@ img {
 
 .services-section {
   position: relative;
-  padding: 85px 0px 60px;
+  padding: 85px 0px 100px;
   background-color: pink;
 }
 
@@ -3087,15 +3087,15 @@ img {
 }
 
 .project-section .gallery-item.large-block {
-  width: 40%;
+  width: 50%;
   float: left;
-  padding: 0px 15px;
+  padding: 0px 8px;
 }
 
 .project-section .gallery-item.small-block {
-  width: 20%;
+  width: 25%;
   float: left;
-  padding: 0px 15px;
+  padding: 0px 8px;
 }
 
 .project-section .more-projects {
@@ -3372,22 +3372,22 @@ html {
 
 .fluid-section-one .outer-container {
   position: relative;
+  display: flex;
+  align-items: stretch;
 }
 
 .fluid-section-one .image-column {
-  position: absolute;
-  right: 0px;
-  top: 70px;
+  position: relative;
   width: 45%;
-  bottom: 0px;
-  float: right;
+  flex-shrink: 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .fluid-section-one .image-column .inner-column {
-  position: static;
+  position: relative;
+  height: 100%;
 }
 
 .fluid-section-one .image-column:before {
@@ -3408,6 +3408,33 @@ html {
 .fluid-section-one .image-column .image img {
   display: block;
   width: 100%;
+}
+
+/* Video embed inside image-column */
+.fluid-section-one .video-column {
+  background: #000;
+}
+
+.fluid-section-one .video-column .inner-column {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+}
+
+.fluid-section-one .video-column .video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fluid-section-one .video-column .video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
 }
 
 .fluid-section-one .image-column .overlay-link {
@@ -3512,9 +3539,8 @@ html {
 
 .fluid-section-one .content-column {
   position: relative;
-  width: 60%;
-  float: left;
-  padding: 95px 165px 80px 15px;
+  flex: 1;
+  padding: 95px 60px 80px 40px;
 }
 
 .fluid-section-one .content-column:before {
@@ -3705,7 +3731,7 @@ html {
 
 .featured-section {
   position: relative;
-  padding: 75px 0px 50px;
+  padding: 120px 0px 110px;
   background-attachment: fixed;
   background-size: cover;
 }
