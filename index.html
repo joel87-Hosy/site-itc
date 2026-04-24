@@ -1226,13 +1226,16 @@
           <div class="image-column video-column">
             <div class="inner-column">
               <div class="video-wrapper">
-                <iframe
-                  src="https://www.youtube.com/embed/g5j4s_uMxMs"
-                  title="ITC - Installation Fibre Optique"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
+                <div class="itc-video-preview" id="itc-video-preview" role="button" tabindex="0" aria-label="Lire la vidéo ITC - Installation Fibre Optique">
+                  <img
+                    src="https://img.youtube.com/vi/g5j4s_uMxMs/maxresdefault.jpg"
+                    alt="ITC - Installation Fibre Optique"
+                    onerror="this.src='https://img.youtube.com/vi/g5j4s_uMxMs/hqdefault.jpg'"
+                  />
+                  <button class="itc-video-play-btn" tabindex="-1" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1801,6 +1804,18 @@
 
 
     <!--Scroll to top-->
+    <!-- Lecteur vidéo modal -->
+    <div id="itc-video-modal" class="itc-video-modal" role="dialog" aria-modal="true" aria-label="Lecteur vidéo ITC">
+      <div class="itc-video-modal-bg" id="itc-video-modal-bg"></div>
+      <div class="itc-video-modal-box">
+        <button class="itc-video-modal-close" id="itc-video-modal-close" aria-label="Fermer la vidéo">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+        <div class="itc-video-modal-ratio">
+          <iframe id="itc-video-iframe" src="" title="ITC - Installation Fibre Optique" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
     <script src="js/jquery.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/jquery-ui.js"></script>
@@ -1861,6 +1876,41 @@ document.getElementById('global-search-form').addEventListener('submit', functio
     });
   </script>
     <script src="js/itc-ai-chat.js"></script>
+    <script>
+    /* ITC Video Modal */
+    (function () {
+      var preview  = document.getElementById('itc-video-preview');
+      var modal    = document.getElementById('itc-video-modal');
+      var modalBg  = document.getElementById('itc-video-modal-bg');
+      var closeBtn = document.getElementById('itc-video-modal-close');
+      var iframe   = document.getElementById('itc-video-iframe');
+      var VIDEO_SRC = 'https://www.youtube.com/embed/g5j4s_uMxMs?autoplay=1&rel=0';
+
+      if (!preview || !modal) return;
+
+      function openModal() {
+        iframe.src = VIDEO_SRC;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        iframe.src = '';
+        document.body.style.overflow = '';
+      }
+
+      preview.addEventListener('click', openModal);
+      preview.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+      });
+      closeBtn.addEventListener('click', closeModal);
+      modalBg.addEventListener('click', closeModal);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+    })();
+    </script>
   </body>
 </html>
 

@@ -9024,3 +9024,167 @@ html {
     color: red !important;
   }
 }
+
+/* ============================================================
+   ITC Video Preview & Modal
+   ============================================================ */
+
+/* Thumbnail + play button overlay */
+.fluid-section-one .video-column .video-wrapper .itc-video-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.itc-video-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.itc-video-preview:hover img {
+  transform: scale(1.04);
+}
+
+.itc-video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  background: rgba(223, 177, 98, 0.88);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.itc-video-preview:hover .itc-video-play-btn {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: #dfb162;
+}
+
+.itc-video-play-btn svg {
+  width: 36px;
+  height: 36px;
+  fill: #fff;
+  margin-left: 5px;
+}
+
+.itc-video-play-btn::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(223, 177, 98, 0.35);
+  animation: itcVideoPulse 2.5s ease-out infinite;
+}
+
+@keyframes itcVideoPulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  80%  { transform: scale(1.7); opacity: 0; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+/* Video Modal */
+.itc-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.itc-video-modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.itc-video-modal-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+}
+
+.itc-video-modal-box {
+  position: relative;
+  z-index: 1;
+  width: 90%;
+  max-width: 960px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+  transform: scale(0.88) translateY(20px);
+  transition: transform 0.35s ease;
+}
+
+.itc-video-modal.open .itc-video-modal-box {
+  transform: scale(1) translateY(0);
+}
+
+.itc-video-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease;
+}
+
+.itc-video-modal-close:hover {
+  background: #dfb162;
+}
+
+.itc-video-modal-close svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
+
+.itc-video-modal-ratio {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.itc-video-modal-ratio iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 576px) {
+  .itc-video-modal-box {
+    width: 96%;
+    border-radius: 8px;
+  }
+}

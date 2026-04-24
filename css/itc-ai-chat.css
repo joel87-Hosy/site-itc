@@ -17,7 +17,7 @@
   position: fixed;
   bottom: 90px;
   right: 28px;
-  z-index: 9999;
+  z-index: 1000001;
   width: 62px;
   height: 62px;
   border-radius: 50%;
@@ -93,7 +93,7 @@
   position: fixed;
   bottom: 165px;
   right: 28px;
-  z-index: 9998;
+  z-index: 1000000;
   width: 370px;
   max-height: 520px;
   border-radius: var(--chat-radius);
