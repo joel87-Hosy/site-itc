@@ -145,13 +145,22 @@
     border-bottom: 1px solid #7a6034;
   }
 
-  .main-header,
   .header-style-five .header-lower,
   .header-style-five .fixed-outer {
     position: relative !important;
     margin: 0 !important;
     left: 0 !important;
     top: 0 !important;
+  }
+
+  /* Keep main-header always fixed on all screen sizes */
+  .main-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 99999 !important;
   }
 
   .header-style-one.fixed-header .header-upper,
@@ -198,7 +207,7 @@
   }
 
   .page-title {
-    padding: 70px 0px;
+    padding: 150px 0px 70px;
   }
 
   .page-title h1 {
@@ -669,7 +678,7 @@
   .main-slider.style-three .slide,
   .main-slider.style-two .slide,
   .main-slider.style-four .slide {
-    padding: 80px 0px 130px;
+    padding: 130px 0px 130px;
     text-align: left;
   }
 
@@ -827,7 +836,7 @@
   }
 
   .page-title {
-    padding: 50px 0px;
+    padding: 130px 0px 50px;
   }
 
   .main-slider .owl-nav {

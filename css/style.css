@@ -734,10 +734,11 @@ img {
 ***/
 
 .main-header {
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   right: 0px;
+  width: 100%;
   display: block;
   z-index: 99999;
 }
@@ -1290,6 +1291,16 @@ img {
   position: fixed;
   left: 0px;
   top: 0px;
+}
+
+/* Hide the info bar in compact (scrolled) mode */
+.fixed-header .header-top {
+  height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+  transition: height 0.3s ease;
 }
 
 .fixed-header .header-upper .logo-outer {

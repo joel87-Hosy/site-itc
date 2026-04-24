@@ -13,9 +13,10 @@
     if ($(".main-header").length) {
       var windowpos = $(window).scrollTop();
       var siteHeader = $(".main-header");
-      var HeaderHeight = $(".main-header").height();
       var scrollLink = $(".scroll-to-top");
-      if (windowpos > HeaderHeight) {
+      // The header is always fixed (position:fixed in CSS).
+      // Toggle compact mode (hides the info bar) after scrolling 60px.
+      if (windowpos > 60) {
         siteHeader.addClass("fixed-header");
         scrollLink.fadeIn(300);
       } else {
