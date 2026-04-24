@@ -331,13 +331,23 @@
 
 /* Responsive */
 @media (max-width: 480px) {
-  #itc-chat-window {
-    width: calc(100vw - 24px);
-    right: 12px;
-    bottom: 150px;
-  }
   #itc-chat-btn {
-    right: 16px;
-    bottom: 80px;
+    position: fixed !important;
+    right: 16px !important;
+    bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 1000001 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 56px !important;
+    height: 56px !important;
+  }
+  #itc-chat-window {
+    position: fixed !important;
+    width: calc(100vw - 24px) !important;
+    right: 12px !important;
+    bottom: calc(150px + env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 1000000 !important;
+    max-height: calc(100vh - 200px) !important;
   }
 }

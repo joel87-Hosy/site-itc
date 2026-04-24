@@ -181,9 +181,17 @@
 
   /* ── Detect root path ──────────────────────────────────── */
   function getRootPath() {
-    const path = window.location.pathname;
-    const depth = (path.match(/\//g) || []).length - 1;
-    return depth > 0 ? '../'.repeat(depth) : '';
+    // Use the script's own src attribute to compute the path to the site root.
+    // This works correctly regardless of the deployment subdirectory (e.g. GitHub Pages).
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; i++) {
+      var src = scripts[i].getAttribute('src') || '';
+      var m = src.match(/^(.*?)js\/itc-ai-chat\.js/);
+      if (m) return m[1]; // '' for root-level pages, '../' for one level deep, etc.
+    }
+    // Fallback: derive from pathname (strips the filename and any deployment prefix)
+    var segs = window.location.pathname.split('/').filter(function(s){ return s && s.indexOf('.') === -1; });
+    return segs.length > 0 ? '../'.repeat(segs.length) : '';
   }
 
   /* ── Message rendering ─────────────────────────────────── */
