@@ -131,7 +131,7 @@
     const originalText = $submitBtn.html();
     $submitBtn.html("<span>...</span>").prop("disabled", true);
     try {
-      const response = await fetch("/api/newsletter", {
+      const response = await fetch("https://itc-backend-92ct.onrender.com/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email }),
@@ -159,7 +159,7 @@
     const originalText = $submitBtn.html();
     $submitBtn.html("<span>Envoi en cours...</span>").prop("disabled", true);
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://itc-backend-92ct.onrender.com/api/contact", {
         method: "POST",
         body: formData,
       });
