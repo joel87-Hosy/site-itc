@@ -17,7 +17,14 @@ app.use(
     contentSecurityPolicy: false, // Désactivé pour faciliter le chargement des scripts/styles externes au début
   }),
 );
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://ivoiretechnocom.ci',
+    'https://www.ivoiretechnocom.ci',
+    'http://localhost:3000'
+  ],
+  methods: ['GET', 'POST']
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,11 +34,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// Rate limit
+// Rate limit (API uniquement)
 app.use(
+  '/api',
   rateLimit({
-    windowMs: (process.env.RATE_LIMIT_WINDOW_MINUTES || 1) * 60 * 1000,
-    max: process.env.RATE_LIMIT_MAX_REQUESTS || 60,
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100,
+    message: { error: 'Trop de requêtes, réessayez dans 15 minutes.' }
   }),
 );
 
@@ -118,17 +127,6 @@ app.post("/api/contact", async (req, res) => {
     res.status(500).send("Erreur d'envoi");
   }
 });
-
-/// ----------------------------------------
-//  SERVIR LE SITE WEB (Correction du chemin)
-// ----------------------------------------
-
-// On ajoute "../" pour dire au serveur de sortir du dossier 'backend'
-// pour trouver l'index.html dans le dossier parent 'IvoireTechnoCom'
-app.use(express.static(path.join(__dirname, "../")));
-
-// Si vous avez un dossier public au même niveau que index.html
-app.use("/public", express.static(path.join(__dirname, "../public")));
 
 // ----------------------------------------
 //  GESTION DES ERREURS & 404
