@@ -1698,7 +1698,7 @@
                       </div>
                       <!-- Newsletter Form -->
                       <div class="newsletter-form">
-                        <form id="newsletter-form" method="post" action="/api/newsletter">
+                        <form id="newsletter-form" method="post" action="https://itc-backend-92ct.onrender.com/api/newsletter">
     <div class="form-group">
         <input type="email" id="subscriber-email" name="email" placeholder="Entrez votre adresse e-mail" required />
         <button type="submit" class="theme-btn btn-style-one">
@@ -1769,7 +1769,7 @@
     const formData = new URLSearchParams(new FormData(this));
 
     try {
-        const response = await fetch('/api/newsletter', {
+        const response = await fetch('https://itc-backend-92ct.onrender.com/api/newsletter', {
             method: 'POST',
             body: formData,
             headers: {

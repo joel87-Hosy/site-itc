@@ -206,7 +206,7 @@
                 <div class="contact-form">
                   <form
                     method="post"
-                    action="/api/contact"
+                    action="https://itc-backend-92ct.onrender.com/api/contact"
                     id="contact-form"
                     enctype="multipart/form-data"
                   >
@@ -726,7 +726,7 @@
                       </div>
                       <!-- Newsletter Form -->
                       <div class="newsletter-form">
-                        <form method="post" action="/api/newsletter">
+                        <form method="post" action="https://itc-backend-92ct.onrender.com/api/newsletter">
                           <input type="hidden" name="_captcha" value="false" />
 
                           <div class="form-group">
@@ -791,7 +791,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     const formData = new URLSearchParams(new FormData(this));
 
     try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch('https://itc-backend-92ct.onrender.com/api/contact', {
             method: 'POST',
             body: formData
         });
