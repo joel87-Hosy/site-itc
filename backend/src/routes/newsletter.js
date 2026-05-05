@@ -1,4 +1,4 @@
-const express = require("express");
+https://itc-backend-92ct.onrender.comconst express = require("express");
 const { handleNewsletter } = require("../controllers/emailController");
 
 const router = express.Router();
